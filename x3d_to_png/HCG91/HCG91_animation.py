@@ -1,10 +1,32 @@
+# -*- coding: utf-8 -*-
+# If you find this code useful for your research, please cite the following 
+# article accordingly:
+#
+# Vogt, Owen et al., Advanced Data Visualization in Astrophysics: 
+# the X3D Pathway, ApJ (2015).
+#
+#    Copyright (C) 2015  Frédéric P.A. Vogt, Chris I. Owen
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# ------------------------------------------------------------------------------
 import bpy, math
 from mathutils import Vector
 
 """
-This script imports an X3D file created with Python (MayaVI) which contains several 3D 
-density contours of HI gas from HCG91 as observed by the VLA.  A simple rotation animation 
-is automatically produced.
+This script imports an X3D file created with Python (MayaVI) which contains 
+several 3D density contours of HI gas from HCG91 as observed by the VLA.  
+A simple rotation animation is automatically produced.
 """
 
 ###########################################
@@ -32,16 +54,20 @@ bpy.data.scenes["Scene"].render.engine = "CYCLES"
 
 # Set the world settings
 
-bpy.data.worlds["World"].light_settings.use_ambient_occlusion = True	# Turn on ambient occulusion, provides a global illumination to the scene
-bpy.data.worlds["World"].light_settings.ao_factor = 1.0					# Ambient occulusion value
-bpy.data.worlds["World"].horizon_color = [0.0, 0.0, 0.0]				# Set background colour to black
+bpy.data.worlds["World"].light_settings.use_ambient_occlusion = True	
+# Turn on ambient occulusion, provides a global illumination to the scene
+bpy.data.worlds["World"].light_settings.ao_factor = 1.0					
+# Ambient occulusion value
+bpy.data.worlds["World"].horizon_color = [0.0, 0.0, 0.0]				
+# Set background colour to black
 
 
 ############################
 ## Define render settings ##
 ############################
 
-# Could normally put these at the end, but we'll want to access some of these values in the script
+# Could normally put these at the end, but we'll want to access some of these
+# values in the script
 
 bpy.data.scenes["Scene"].render.fps_base = 1
 bpy.data.scenes["Scene"].render.resolution_x = 1280
@@ -70,13 +96,17 @@ bpy.data.scenes["Scene"].render.tile_y = 32
 bpy.ops.import_scene.x3d(filepath=X3D_location)
 
 """
-When imported into Blender, the X3D file contains a number of contour meshes with default names like "ShapeIndexedFaceSet.???".  
-We will delete those not required for this video, and rename the rest to something more human friendly.
-The default MayaVI viewport objects are also imported, including a camera and some light sources.  We will remove these too.
-We will also define the positions of the galaxies within the HCG91 galaxy group, along with some RGB colours for their materials.
+When imported into Blender, the X3D file contains a number of contour meshes 
+with default names like "ShapeIndexedFaceSet.???". We will delete those not 
+required for this video, and rename the rest to something more human friendly.
+The default MayaVI viewport objects are also imported, including a camera and 
+some light sources.  We will remove these too. We will also define the positions 
+of the galaxies within the HCG91 galaxy group, along with some RGB colours for 
+their materials.
 """
 
-# Following manually importing the X3D file into Blender and examining which objects were which ...
+# Following manually importing the X3D file into Blender and examining which 
+# objects were which ...
 
 bpy.data.objects["ShapeIndexedFaceSet"].name = "Contour1"
 bpy.data.objects["ShapeIndexedFaceSet.001"].name = "Contour2"
@@ -176,14 +206,17 @@ for obj in bpy.data.objects[:]:
 		obj.scale = [0.05, 0.05, 0.05]
 		obj.select = False
 
-		# Make some corrections to the mesh produced by MayaVI - removes duplicate vertexes and makes sure direction of faces are consistent.
+		# Make some corrections to the mesh produced by MayaVI - 
+		# removes duplicate vertexes and makes sure direction of faces 
+		# are consistent.
 
 		bpy.ops.object.mode_set(mode="EDIT")
 		bpy.ops.mesh.remove_doubles()
 		bpy.ops.mesh.normals_make_consistent()
 		bpy.ops.object.mode_set(mode="OBJECT")
 
-		# Adds some cosmetic smoothing to the meshes to remove sharp triangular edges.  Artistic choice for end user to make.
+		# Adds some cosmetic smoothing to the meshes to remove sharp 
+		# triangular edges.  Artistic choice for end user to make.
 
 		obj.modifiers.new("smooth", type="SMOOTH")
 		obj.modifiers["smooth"].iterations = 2
@@ -194,7 +227,8 @@ for obj in bpy.data.objects[:]:
 
 	if obj.type == "LAMP":
 	
-		# Lamp origin can't have an offset, so need to use a slightly different approach to shift/resize.
+		# Lamp origin can't have an offset, so need to use a slightly 
+		# different approach to shift/resize.
 	
 		obj.location[0] = (obj.location[0] - bpy.context.scene.cursor_location[0])*0.05
 		obj.location[1] = (obj.location[1] - bpy.context.scene.cursor_location[1])*0.05
@@ -230,7 +264,8 @@ for gal in galaxies:
 	for node in mat.node_tree.nodes[:]:
 		mat.node_tree.nodes.remove(node)
 
-	# Add required shader nodes - an emission shader node, and the material output node
+	# Add required shader nodes - an emission shader node, and the material 
+	# output node
 
 	mat.node_tree.nodes.new(type="ShaderNodeEmission")
 	mat.node_tree.nodes["Emission"].location = [-100, 0]
@@ -241,14 +276,18 @@ for gal in galaxies:
 	mat.node_tree.nodes["Material Output"].location = [100, 0]
 
 	# Link the nodes together
-
-	mat.node_tree.links.new(mat.node_tree.nodes["Emission"].outputs["Emission"], mat.node_tree.nodes["Material Output"].inputs["Surface"])	# Link the Diffuse shader's "BSDF" output with the material output's "Surface" input.
+        # Link the Diffuse shader's "BSDF" output with the material output's 
+        # "Surface" input.
+	mat.node_tree.links.new(mat.node_tree.nodes["Emission"].outputs["Emission"], 
+	                        mat.node_tree.nodes["Material Output"].inputs["Surface"])	
+	                        
 
 	# Attach the material to the mesh
 
 	bpy.data.objects[gal[0]].data.materials.append(mat)	
 	
-	# Change the ray visibility fo the objects - helps simplify the render and reduce noise.
+	# Change the ray visibility fo the objects - helps simplify the render 
+	# and reduce noise.
 	
 	bpy.data.objects["%s" %gal[0]].cycles_visibility.diffuse = False
 	bpy.data.objects["%s" %gal[0]].cycles_visibility.glossy = False
@@ -285,11 +324,13 @@ for con in contours:
 	for node in mat.node_tree.nodes[:]:
 		mat.node_tree.nodes.remove(node)
 
-	# Add required shader nodes - a diffuse node, a transparency node, a "layer weight" node, a mixing node, and the material output node	
+	# Add required shader nodes - a diffuse node, a transparency node, a 
+	# "layer weight" node, a mixing node, and the material output node	
 
 	mat.node_tree.nodes.new(type="ShaderNodeBsdfDiffuse")
 	mat.node_tree.nodes["Diffuse BSDF"].location = [-100, -50]
-	mat.node_tree.nodes["Diffuse BSDF"].inputs["Color"].default_value = (con[1][0], con[1][1], con[1][2], 1.0)
+	mat.node_tree.nodes["Diffuse BSDF"].inputs["Color"].default_value = \
+	                                  (con[1][0], con[1][1], con[1][2], 1.0)
 
 	mat.node_tree.nodes.new(type="ShaderNodeBsdfTransparent")
 	mat.node_tree.nodes["Transparent BSDF"].location = [-100, 0]
@@ -306,16 +347,21 @@ for con in contours:
 	
 	# Link the nodes together
 
-	mat.node_tree.links.new(mat.node_tree.nodes["Layer Weight"].outputs["Facing"], mat.node_tree.nodes["Mix Shader"].inputs["Fac"])
-	mat.node_tree.links.new(mat.node_tree.nodes["Transparent BSDF"].outputs["BSDF"], mat.node_tree.nodes["Mix Shader"].inputs[1])
-	mat.node_tree.links.new(mat.node_tree.nodes["Diffuse BSDF"].outputs["BSDF"], mat.node_tree.nodes["Mix Shader"].inputs[2])
-	mat.node_tree.links.new(mat.node_tree.nodes["Mix Shader"].outputs["Shader"], mat.node_tree.nodes["Material Output"].inputs["Surface"])
+	mat.node_tree.links.new(mat.node_tree.nodes["Layer Weight"].outputs["Facing"], 
+	                        mat.node_tree.nodes["Mix Shader"].inputs["Fac"])
+	mat.node_tree.links.new(mat.node_tree.nodes["Transparent BSDF"].outputs["BSDF"], 
+	                        mat.node_tree.nodes["Mix Shader"].inputs[1])
+	mat.node_tree.links.new(mat.node_tree.nodes["Diffuse BSDF"].outputs["BSDF"], 
+	                        mat.node_tree.nodes["Mix Shader"].inputs[2])
+	mat.node_tree.links.new(mat.node_tree.nodes["Mix Shader"].outputs["Shader"], 
+	                        mat.node_tree.nodes["Material Output"].inputs["Surface"])
 
 	# Attach the material to the mesh
 
 	bpy.data.objects["%s" %con[0]].data.materials.append(mat)	
 
-	# Change the ray visibility fo the objects - helps simplify the render and reduce noise.
+	# Change the ray visibility fo the objects - helps simplify the render 
+	# and reduce noise.
 	
 	bpy.data.objects["%s" %con[0]].cycles_visibility.diffuse = False
 	bpy.data.objects["%s" %con[0]].cycles_visibility.glossy = False
@@ -329,7 +375,8 @@ for con in contours:
 
 bpy.ops.object.select_all(action="DESELECT")
 
-# Add control "empty" object.  This will control camera rotation from the centre of the scene.
+# Add control "empty" object.  This will control camera rotation from the centre 
+# of the scene.
 
 bpy.ops.object.empty_add(type="PLAIN_AXES")
 bpy.context.active_object.name = "CameraControl"
@@ -338,7 +385,8 @@ bpy.context.active_object.name = "CameraControl"
 
 bpy.ops.object.camera_add()
 bpy.data.cameras["Camera.001"].clip_start = 0.0
-bpy.data.cameras["Camera.001"].clip_end = 10000.0		# Increases the camera's view distance
+bpy.data.cameras["Camera.001"].clip_end = 10000.0		
+# Increases the camera's view distance
 
 # Parent camera to "empty" camera control object
 
@@ -353,7 +401,8 @@ bpy.ops.object.parent_set(type="OBJECT", keep_transform=True)
 # Move/rotate camera to default position
 
 bpy.data.objects["Camera"].location = [100.0, 0.0, 0.0]
-bpy.data.objects["Camera"].rotation_euler = [math.radians(90.0), 0.0, math.radians(90.0)]
+bpy.data.objects["Camera"].rotation_euler = [math.radians(90.0), 0.0, 
+                                             math.radians(90.0)]
 
 bpy.data.scenes["Scene"].camera = bpy.data.objects["Camera"]
 
@@ -407,7 +456,8 @@ for gal in galaxies:
 
 # Move back to original scene and add nodes to the compositor
 # We will use the compositor to overlay this text on the original rendered scene
-# This allows us to simultaneously produce versions of the animation with and without text 
+# This allows us to simultaneously produce versions of the animation with and 
+# without text 
 
 bpy.context.screen.scene = bpy.data.scenes["Scene"]
 
@@ -439,11 +489,13 @@ viewer = bpy.context.scene.node_tree.nodes.new(type="CompositorNodeViewer")
 viewer.location = [200, 100]
 
 fileoutput1 = bpy.context.scene.node_tree.nodes.new(type="CompositorNodeOutputFile")
-fileoutput1.base_path = output_composite_dir	# Output directory for render+text version
+# Output directory for render+text version
+fileoutput1.base_path = output_composite_dir	
 fileoutput1.location = [200, -100]	
 
 fileoutput2 = bpy.context.scene.node_tree.nodes.new(type="CompositorNodeOutputFile")
-fileoutput2.base_path = output_raw_dir			# Output directory for render only version
+# Output directory for render only version
+fileoutput2.base_path = output_raw_dir			
 fileoutput2.location = [200, -300]
 
 # Link the nodes together
@@ -460,9 +512,12 @@ bpy.context.scene.node_tree.links.new(alphaover.outputs[0], fileoutput1.inputs[0
 ## Add animation ##
 ###################
 
-# There is an immense variety of options that can be utilised here, pretty much everything you can think of can be keyframed.
-# For this example, we will animate some simple 360 degree rotations of the camera around the scene.
-# With each rotation we will vary the appearance of some of the objects in the scene in order to highlight different galaxies on each rotation
+# There is an immense variety of options that can be utilised here, pretty much 
+# everything you can think of can be keyframed.
+# For this example, we will animate some simple 360 degree rotations of the 
+# camera around the scene.
+# With each rotation we will vary the appearance of some of the objects in the 
+# scene in order to highlight different galaxies on each rotation
 
 # Define the animation parameters
 
@@ -511,13 +566,17 @@ for ani in animation:
 	
 		# Camera rotation
 	
-		cc.rotation_euler = [math.radians(ani[keyframe[1]][0]), math.radians(ani[keyframe[1]][1]), math.radians(ani[keyframe[1]][2])]
-		bpy.ops.anim.keyframe_insert(type='Rotation',confirm_success=False)
+		cc.rotation_euler = [math.radians(ani[keyframe[1]][0]), 
+		                     math.radians(ani[keyframe[1]][1]), 
+		                     math.radians(ani[keyframe[1]][2])]
+		bpy.ops.anim.keyframe_insert(type='Rotation',
+		                              confirm_success=False)
 
 		# Scene AO brightness
-		
-		bpy.data.worlds["World"].light_settings.ao_factor = ani[1]				# Change the value
-		bpy.data.worlds["World"].light_settings.keyframe_insert("ao_factor")	# Insert a keyframe
+		# Change the value
+		bpy.data.worlds["World"].light_settings.ao_factor = ani[1]
+		# Insert a keyframe				
+		bpy.data.worlds["World"].light_settings.keyframe_insert("ao_factor")	
 		
 		# Galaxy illumination
 		
@@ -543,8 +602,10 @@ for ani in animation:
 			bpy.data.objects["%s_Lamp" %off].data.node_tree.nodes["Emission"].inputs["Strength"].default_value = 0.0
 			bpy.data.objects["%s_Lamp" %off].data.node_tree.nodes["Emission"].inputs["Strength"].keyframe_insert("default_value")
 	
-		# Note that we don't need to explicitly do anything for the text overlays on the other scene.
-		# These are using the exact same materials as the galaxy spheres, so they are already animated.
+		# Note that we don't need to explicitly do anything for the text 
+		# overlays on the other scene.
+		# These are using the exact same materials as the galaxy spheres, 
+		# so they are already animated.
 				
 	frames_prior = frames_prior + frames		
 
@@ -576,13 +637,15 @@ for ani in animation:
 ## Set viewport shading and camera view ##
 ##########################################
 
-# This just automatically sets Blender to a "rendered" view for instant feedback that the script has worked.
+# This just automatically sets Blender to a "rendered" view for instant feedback 
+# that the script has worked.
 
 for area in bpy.context.screen.areas: # iterate through areas in current screen
     if area.type == 'VIEW_3D':
         for space in area.spaces: # iterate through spaces in current VIEW_3D area
             if space.type == 'VIEW_3D': # check if space is a 3D view
-                space.viewport_shade = 'RENDERED' # set the viewport shading to rendered
+                # set the viewport shading to rendered
+                space.viewport_shade = 'RENDERED' 
                 space.region_3d.view_perspective="CAMERA"
 
 
