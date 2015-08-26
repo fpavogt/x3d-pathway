@@ -435,21 +435,18 @@ mlab.text( 280,  300, '300', z=6560, color = (0,0,0),width=0.05)
 mlab.text(-320,  300, '-300',z=6560, color = (0,0,0),width=0.05)
 
 # Finally, add some tick lines in the middle of the top-front-side panels
-mlab.plot3d([-300,300],[0,0],[np.min(vs),np.min(vs)], color=(0,0,0), tube_radius=1)
-mlab.plot3d([0,0],[-300,300],[np.min(vs),np.min(vs)], color=(0,0,0), tube_radius=1)
-mlab.plot3d([0,0],[np.max(decs),np.max(decs)],[6671.3,7643.7], color=(0,0,0), tube_radius=1)
-mlab.plot3d([-300,300],[np.max(decs),np.max(decs)],[7157.5,7157.5], color=(0,0,0), tube_radius=1)
-mlab.plot3d([np.min(ras),np.min(ras)],[0,0],[6671.3,7643.7], color=(0,0,0), tube_radius=1)
-mlab.plot3d([np.min(ras),np.min(ras)],[-300,300],[7157.5,7157.5], color=(0,0,0), tube_radius=1)
-
-# --- !!! ---
-# MAYAVI BUG (#3)
-# If the last element to be plotted is a "mlab.text(...)", the it will NOT
-# be exported correctly to the X3D file. One should ensure any text is not 
-# plotted last.
-#
-# --- !!! ---
-
+mlab.plot3d([-300,300],[0,0],[np.min(vs),np.min(vs)], color=(0,0,0), 
+            tube_radius=1)
+mlab.plot3d([0,0],[-300,300],[np.min(vs),np.min(vs)], color=(0,0,0), 
+            tube_radius=1)
+mlab.plot3d([0,0],[np.max(decs),np.max(decs)],[6671.3,7643.7], color=(0,0,0), 
+            tube_radius=1)
+mlab.plot3d([-300,300],[np.max(decs),np.max(decs)],[7157.5,7157.5],color=(0,0,0), 
+            tube_radius=1)
+mlab.plot3d([np.min(ras),np.min(ras)],[0,0],[6671.3,7643.7], color=(0,0,0), 
+            tube_radius=1)
+mlab.plot3d([np.min(ras),np.min(ras)],[-300,300],[7157.5,7157.5], color=(0,0,0), 
+            tube_radius=1)
 
 # All done !
 # Save it & export the diagram
