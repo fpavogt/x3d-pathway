@@ -1,9 +1,33 @@
+# -*- coding: utf-8 -*-
+# If you find this code useful for your research, please cite the following 
+# article accordingly:
+#
+# Vogt, Owen et al., Advanced Data Visualization in Astrophysics: 
+# the X3D Pathway, ApJ (2015).
+#
+#    Copyright (C) 2015  Frédéric P.A. Vogt, Chris I. Owen
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# ------------------------------------------------------------------------------
+
 import bpy, math
 from mathutils import Vector
 
 """
 This is a more complex Blender script to import an X3D mesh of a red dice.
-It sets up a typical Blender scene, imports an X3D mesh, applies a variety of materials, and sets up a simple animation.
+It sets up a typical Blender scene, imports an X3D mesh, applies a variety of 
+materials, and sets up a simple animation.
 """
 
 ###########################################
@@ -11,7 +35,8 @@ It sets up a typical Blender scene, imports an X3D mesh, applies a variety of ma
 ###########################################
 
 X3D_location = "/Volumes/Flash/red_dice.x3d"
-bpy.data.scenes["Scene"].render.filepath = "/Volumes/Flash/red_dice/"				# Rendered frames output location.
+# Rendered frames output location.
+bpy.data.scenes["Scene"].render.filepath = "/Volumes/Flash/red_dice/"				
 
 ############################
 ## Initial setup of scene ##
@@ -44,9 +69,9 @@ bpy.data.worlds["World"].light_settings.ao_factor = 0.1
 
 bpy.ops.import_scene.x3d(filepath=X3D_location)
 
-# Note that this X3D file contains the required objects, and also some other unwanted 
-# objects from MayaVI.  This includes the MayaVI viewport camera and some lamps.  We will
-# delete these and keep only the dice objects.
+# Note that this X3D file contains the required objects, and also some other 
+# unwanted objects from MayaVI.  This includes the MayaVI viewport camera and 
+# some lamps.  We will delete these and keep only the dice objects.
 
 bpy.data.objects["ShapeIndexedFaceSet"].name = "YellowSphere"
 bpy.data.objects["ShapeIndexedFaceSet.001"].name = "TransparentSphere"
@@ -59,11 +84,13 @@ bpy.data.objects["ShapeIndexedLineSet"].name = "DiceOutline"
 bpy.ops.object.select_all(action="DESELECT")
 
 for obj in bpy.data.objects[:]:
-	if obj.name not in ["YellowSphere", "TransparentSphere", "TransparentCube", "NumberSpheres", "DiceOutline"]:
+	if obj.name not in ["YellowSphere", "TransparentSphere", 
+	                    "TransparentCube", "NumberSpheres", "DiceOutline"]:
 		bpy.data.objects[obj.name].select = True	
 		bpy.ops.object.delete()		
 
-# The small spheres representing the dice's numbers were exported from MayaVI as a single object.
+# The small spheres representing the dice's numbers were exported from MayaVI 
+# as a single object.
 # We want to split them into separate spheres and work out which are which.
 
 bpy.ops.object.select_all(action="DESELECT")
@@ -82,12 +109,14 @@ for obj in bpy.data.objects[:]:
 		obj.select = True
 		bpy.ops.object.origin_set(type="ORIGIN_GEOMETRY")
 		
-		# There is a single vertex placed at the centre of the scene, we should delete this
+		# There is a single vertex placed at the centre of the scene, 
+		# we should delete this
 		
 		if obj.location == Vector((0.0, 0.0, 0.0)):
 			bpy.ops.object.delete()
 			
-		# Now we'll rename the spheres by their dice number, and an arbitrary number to keep them unique
+		# Now we'll rename the spheres by their dice number, and an 
+		# arbitrary number to keep them unique
 			
 		if obj.location[1] < -0.45:	# Number 1
 			obj.name = "Dice1_%s" %n			
@@ -107,8 +136,10 @@ for obj in bpy.data.objects[:]:
 		if obj.location[1] > 0.45:	# Number 6
 			obj.name = "Dice6_%s" %n	
 
-		# We'll add a subsurface modifier to make these low-poly spheres look more spherical.  
-		# They're not really spheres though, so they'll still be a bit lumpy.  Adds character to the scene. :)
+		# We'll add a subsurface modifier to make these low-poly spheres 
+		# look more spherical.  
+		# They're not really spheres though, so they'll still be a bit 
+		# lumpy.  Adds character to the scene. :)
 
 		obj.modifiers.new("subd", type="SUBSURF")
 		obj.modifiers["subd"].levels = 3
@@ -144,7 +175,8 @@ bpy.ops.object.lamp_add(type="POINT")
 lamp = bpy.data.objects["Point"]
 
 lamp.location = [2.0, 1.0, 3.0]
-lamp.data.node_tree.nodes["Emission"].inputs["Strength"].default_value = 300.0  # Set lamp brightness value
+# Set lamp brightness value
+lamp.data.node_tree.nodes["Emission"].inputs["Strength"].default_value = 300.0  
 
 # Add a camera
 
@@ -160,11 +192,15 @@ camera.rotation_euler = [math.radians(45.0), 0.0, math.radians(45.0)]
 ################################################
 
 """
-Note that setting up materials is a fairly simple process, but one which generally takes a relatively large number of lines.
-This is because we are mimicking setting up a node/node-link structure that was designed for manual manipulation in the GUI.
-In a "real" script, most of this could be done more efficiently using functions for the repeated lines. For "simplicity" I present each material in full where appropriate.
-For more complex materials in a "real" script, it is better to create the material manually in a separate .blend file, then simply "append" it to the script.
-Creating materials manually is also helpful as you get to see how they look in real-time.  
+Note that setting up materials is a fairly simple process, but one which 
+generally takes a relatively large number of lines. This is because we are 
+mimicking setting up a node/node-link structure that was designed for manual 
+manipulation in the GUI. In a "real" script, most of this could be done more 
+efficiently using functions for the repeated lines. For "simplicity" I present 
+each material in full where appropriate. For more complex materials in a "real" 
+script, it is better to create the material manually in a separate .blend file, 
+then simply "append" it to the script. Creating materials manually is also 
+helpful as you get to see how they look in real-time.  
 """
 
 ## Simple black diffuse material ##
@@ -182,14 +218,16 @@ for node in mat.node_tree.nodes[:]:
 
 mat.node_tree.nodes.new(type="ShaderNodeBsdfDiffuse")
 mat.node_tree.nodes["Diffuse BSDF"].location = [-200, 0]
-mat.node_tree.nodes["Diffuse BSDF"].inputs["Color"].default_value = (0.0, 0.0, 0.0, 1.0)		# Black colour
+# Black colour
+mat.node_tree.nodes["Diffuse BSDF"].inputs["Color"].default_value =(0.,0.,0.,1.)		
 
 mat.node_tree.nodes.new(type="ShaderNodeOutputMaterial")
 mat.node_tree.nodes["Material Output"].location = [200, 0]
 
 # Link the shader nodes together
 
-mat.node_tree.links.new(mat.node_tree.nodes["Diffuse BSDF"].outputs["BSDF"], mat.node_tree.nodes["Material Output"].inputs["Surface"])
+mat.node_tree.links.new(mat.node_tree.nodes["Diffuse BSDF"].outputs["BSDF"], 
+                        mat.node_tree.nodes["Material Output"].inputs["Surface"])
 
 # Remove any default material already associated with the object
 
@@ -216,14 +254,16 @@ for node in mat.node_tree.nodes[:]:
 
 mat.node_tree.nodes.new(type="ShaderNodeBsdfDiffuse")
 mat.node_tree.nodes["Diffuse BSDF"].location = [-200, 0]
-mat.node_tree.nodes["Diffuse BSDF"].inputs["Color"].default_value = (1.0, 0.5, 0.0, 1.0)		# Yellow colour
+# Yellow colour
+mat.node_tree.nodes["Diffuse BSDF"].inputs["Color"].default_value =(1.,0.5,0.,1.)		
 
 mat.node_tree.nodes.new(type="ShaderNodeOutputMaterial")
 mat.node_tree.nodes["Material Output"].location = [200, 0]
 
 # Link the shader nodes together
 
-mat.node_tree.links.new(mat.node_tree.nodes["Diffuse BSDF"].outputs["BSDF"], mat.node_tree.nodes["Material Output"].inputs["Surface"])
+mat.node_tree.links.new(mat.node_tree.nodes["Diffuse BSDF"].outputs["BSDF"], 
+                        mat.node_tree.nodes["Material Output"].inputs["Surface"])
 
 # Remove any default material already associated with the object
 
@@ -250,24 +290,30 @@ for node in mat.node_tree.nodes[:]:
 
 mat.node_tree.nodes.new(type="ShaderNodeBsdfDiffuse")
 mat.node_tree.nodes["Diffuse BSDF"].location = [-200, -100]
-mat.node_tree.nodes["Diffuse BSDF"].inputs["Color"].default_value = (1.0, 0.0, 0.0, 1.0)		# Red colour
+# Red colour
+mat.node_tree.nodes["Diffuse BSDF"].inputs["Color"].default_value =(1.,0.,0.,1.)		
 
 mat.node_tree.nodes.new(type="ShaderNodeBsdfTransparent")
 mat.node_tree.nodes["Transparent BSDF"].location = [-200, 100]
-mat.node_tree.nodes["Transparent BSDF"].inputs["Color"].default_value = (1.0, 1.0, 1.0, 1.0)		# White colour
+# White colour
+mat.node_tree.nodes["Transparent BSDF"].inputs["Color"].default_value =(1.,1.,1.,1.)		
 
 mat.node_tree.nodes.new(type="ShaderNodeMixShader")
 mat.node_tree.nodes["Mix Shader"].location = [0, 0]
-mat.node_tree.nodes["Mix Shader"].inputs["Fac"].default_value = 0.4								# The material will be 60% transparent and 40% diffuse
+# The material will be 60% transparent and 40% diffuse
+mat.node_tree.nodes["Mix Shader"].inputs["Fac"].default_value = 0.4
 
 mat.node_tree.nodes.new(type="ShaderNodeOutputMaterial")
 mat.node_tree.nodes["Material Output"].location = [200, 0]
 
 # Link the shader nodes together
 
-mat.node_tree.links.new(mat.node_tree.nodes["Transparent BSDF"].outputs["BSDF"], mat.node_tree.nodes["Mix Shader"].inputs[1])
-mat.node_tree.links.new(mat.node_tree.nodes["Diffuse BSDF"].outputs["BSDF"], mat.node_tree.nodes["Mix Shader"].inputs[2])
-mat.node_tree.links.new(mat.node_tree.nodes["Mix Shader"].outputs["Shader"], mat.node_tree.nodes["Material Output"].inputs["Surface"])
+mat.node_tree.links.new(mat.node_tree.nodes["Transparent BSDF"].outputs["BSDF"], 
+                        mat.node_tree.nodes["Mix Shader"].inputs[1])
+mat.node_tree.links.new(mat.node_tree.nodes["Diffuse BSDF"].outputs["BSDF"], 
+                        mat.node_tree.nodes["Mix Shader"].inputs[2])
+mat.node_tree.links.new(mat.node_tree.nodes["Mix Shader"].outputs["Shader"], 
+                        mat.node_tree.nodes["Material Output"].inputs["Surface"])
 
 # Remove any default material already associated with the object
 
@@ -294,24 +340,30 @@ for node in mat.node_tree.nodes[:]:
 
 mat.node_tree.nodes.new(type="ShaderNodeBsdfDiffuse")
 mat.node_tree.nodes["Diffuse BSDF"].location = [-200, -100]
-mat.node_tree.nodes["Diffuse BSDF"].inputs["Color"].default_value = (1.0, 1.0, 1.0, 1.0)		# White colour
+# White colour
+mat.node_tree.nodes["Diffuse BSDF"].inputs["Color"].default_value=(1.,1.,1.,1.)		
 
 mat.node_tree.nodes.new(type="ShaderNodeBsdfTransparent")
 mat.node_tree.nodes["Transparent BSDF"].location = [-200, 100]
-mat.node_tree.nodes["Transparent BSDF"].inputs["Color"].default_value = (1.0, 1.0, 1.0, 1.0)		# White colour
+# White colour
+mat.node_tree.nodes["Transparent BSDF"].inputs["Color"].default_value=(1.,1.,1.,1.)		
 
 mat.node_tree.nodes.new(type="ShaderNodeMixShader")
 mat.node_tree.nodes["Mix Shader"].location = [0, 0]
-mat.node_tree.nodes["Mix Shader"].inputs["Fac"].default_value = 0.4								# The material will be 60% transparent and 40% diffuse
+# The material will be 60% transparent and 40% diffuse
+mat.node_tree.nodes["Mix Shader"].inputs["Fac"].default_value = 0.4	
 
 mat.node_tree.nodes.new(type="ShaderNodeOutputMaterial")
 mat.node_tree.nodes["Material Output"].location = [200, 0]
 
 # Link the shader nodes together
 
-mat.node_tree.links.new(mat.node_tree.nodes["Transparent BSDF"].outputs["BSDF"], mat.node_tree.nodes["Mix Shader"].inputs[1])
-mat.node_tree.links.new(mat.node_tree.nodes["Diffuse BSDF"].outputs["BSDF"], mat.node_tree.nodes["Mix Shader"].inputs[2])
-mat.node_tree.links.new(mat.node_tree.nodes["Mix Shader"].outputs["Shader"], mat.node_tree.nodes["Material Output"].inputs["Surface"])
+mat.node_tree.links.new(mat.node_tree.nodes["Transparent BSDF"].outputs["BSDF"], 
+                        mat.node_tree.nodes["Mix Shader"].inputs[1])
+mat.node_tree.links.new(mat.node_tree.nodes["Diffuse BSDF"].outputs["BSDF"], 
+                        mat.node_tree.nodes["Mix Shader"].inputs[2])
+mat.node_tree.links.new(mat.node_tree.nodes["Mix Shader"].outputs["Shader"], 
+                        mat.node_tree.nodes["Material Output"].inputs["Surface"])
 
 # Remove any default material already associated with the object
 
@@ -325,9 +377,10 @@ bpy.data.objects["TransparentSphere"].data.materials.append(mat)
 
 ## Diffuse coloured dice number materials ##
 
-# Now we want to create a material for each of the set of spheres for each side of the dice.
-# This requires creating 6 materials which are identical, except for their colour, so we will use a function here.
-# Note that these materials are identical to the "DiffuseBlack" and "DiffuseYellow" created above.
+# Now we want to create a material for each of the set of spheres for each side 
+# of the dice. This requires creating 6 materials which are identical, except 
+# for their colour, so we will use a function here. Note that these materials 
+# are identical to the "DiffuseBlack" and "DiffuseYellow" created above.
 
 # First, define which colours we'll be using:
 
@@ -356,14 +409,16 @@ def create_dicenumbmat(number, R, G, B):
 
 	mat.node_tree.nodes.new(type="ShaderNodeBsdfDiffuse")
 	mat.node_tree.nodes["Diffuse BSDF"].location = [-200, 0]
-	mat.node_tree.nodes["Diffuse BSDF"].inputs["Color"].default_value = (R, G, B, 1.0)		# Dice colour
+	# Dice colour
+	mat.node_tree.nodes["Diffuse BSDF"].inputs["Color"].default_value = (R,G,B,1.)		
 
 	mat.node_tree.nodes.new(type="ShaderNodeOutputMaterial")
 	mat.node_tree.nodes["Material Output"].location = [200, 0]
 
 	# Link the shader nodes together
 
-	mat.node_tree.links.new(mat.node_tree.nodes["Diffuse BSDF"].outputs["BSDF"], mat.node_tree.nodes["Material Output"].inputs["Surface"])
+	mat.node_tree.links.new(mat.node_tree.nodes["Diffuse BSDF"].outputs["BSDF"], 
+	                        mat.node_tree.nodes["Material Output"].inputs["Surface"])
 
 	# Find the objects associated with this dice number
 	
@@ -371,7 +426,8 @@ def create_dicenumbmat(number, R, G, B):
 	
 		if "Dice%s" %number in obj.name:
 
-			# Remove any default material already associated with the object
+			# Remove any default material already associated with 
+			# the object
 
 			for i in range(len(obj.data.materials[:])):
 				obj.data.materials.pop()
@@ -384,30 +440,37 @@ def create_dicenumbmat(number, R, G, B):
 
 for dice_number in dice_numbers:
 
-	create_dicenumbmat(dice_number[0], dice_number[1][0], dice_number[1][1], dice_number[1][2])
+	create_dicenumbmat(dice_number[0], dice_number[1][0], dice_number[1][1], 
+	                   dice_number[1][2])
 
 
 ## Floor plane material ##
 
-# For simplicity, we'll just leave this as the default Cycles material - a simple diffuse off-white.  Nothing needs to be done here.
+# For simplicity, we'll just leave this as the default Cycles material: 
+# a simple diffuse off-white.  Nothing needs to be done here.
 
 ###############
 ## Animation ##
 ###############
 
-# For our animation we'll make the camera do a 360 degree spin around the centre of the dice.
+# For our animation we'll make the camera do a 360 degree spin around the centre 
+# of the dice.
 
-# First, we'll create an "empty" object at the centre of the scene - this will control the camera's rotation.
+# First, we'll create an "empty" object at the centre of the scene - this will 
+# control the camera's rotation.
 
 bpy.ops.object.empty_add(type="PLAIN_AXES")
 bpy.data.objects["Empty"].name = "CameraControl"
 
-# Now we'll parent the Camera to the CameraControl object.  Any location/rotation/scale operation applied to the CameraControl will also be applied to the Camera.
+# Now we'll parent the Camera to the CameraControl object.  
+# Any location/rotation/scale operation applied to the CameraControl will also 
+# be applied to the Camera.
 
 bpy.data.objects["Camera"].parent = bpy.data.objects["CameraControl"]
 
 # Now we'll animate the CameraControl to rotate 360 degrees around the Z axis.
-# The default frames-per-second is 24, so we'll make a 5 second animation (5 * 24 = 120 frames)
+# The default frames-per-second is 24, so we'll make a 5 second animation 
+# (5 * 24 = 120 frames)
 
 # Set the animation range
 
@@ -426,13 +489,17 @@ bpy.ops.anim.keyframe_insert(type='Rotation',confirm_success=False)
 
 # Add the second animation keyframe
 
-bpy.data.scenes["Scene"].frame_current = 121		# We want the 121th frame to be the 360th degree to make sure frame 1 and 120 are not identical.
+bpy.data.scenes["Scene"].frame_current = 121		
+# We want the 121th frame to be the 360th degree to make sure frame 1 and 120 
+# are not identical.
 bpy.data.objects["CameraControl"].rotation_euler = [0.0, 0.0, math.radians(360.0)]
 bpy.ops.anim.keyframe_insert(type='Rotation',confirm_success=False)
 
-# The animation is interpolated between these two keyframes.  You get a choice of what kind of interpolation to use.
+# The animation is interpolated between these two keyframes.  You get a choice 
+# of what kind of interpolation to use.
 # The default uses Bezier curves in order to accelerate and decelerate the motion.  
-# We want a smooth linear motion here, so we'll change the interpolation for each keyframe to "linear".
+# We want a smooth linear motion here, so we'll change the interpolation for 
+# each keyframe to "linear".
 
 for curves in bpy.data.objects["CameraControl"].animation_data.action.fcurves:
 	for kfs in curves.keyframe_points:
@@ -447,12 +514,20 @@ bpy.data.scenes["Scene"].render.resolution_x = 1280
 bpy.data.scenes["Scene"].render.resolution_y = 720
 bpy.data.scenes["Scene"].render.resolution_percentage = 100
 bpy.data.scenes["Scene"].render.image_settings.compression = 100
-bpy.data.scenes["Scene"].cycles.samples = 125							# The "quality" of the render.  More samples means less noise, but longer render time.
-bpy.data.scenes["Scene"].cycles.sample_clamp_indirect = 0.5				# Clamps the indirect light rays.  Reduces noise at the cost of the accuracy of bounced light.
-bpy.data.scenes["Scene"].render.tile_x = 32								# The render tile sizes.  Smaller tiles render faster, but at the cost of additional overhead for swapping more tiles.  For typical CPU rendering on my Macbook Pro, 32 is a good size.
+bpy.data.scenes["Scene"].cycles.samples = 125							
+# The "quality" of the render.  More samples means less noise, but longer render 
+# time.
+bpy.data.scenes["Scene"].cycles.sample_clamp_indirect = 0.5				
+# Clamps the indirect light rays.  Reduces noise at the cost of the accuracy of 
+# bounced light.
+bpy.data.scenes["Scene"].render.tile_x = 32								
+# The render tile sizes.  Smaller tiles render faster, but at the cost of 
+# additional overhead for swapping more tiles.  For typical CPU rendering on my 
+# Macbook Pro, 32 is a good size.
 bpy.data.scenes["Scene"].render.tile_y = 32					
 
-# If you're looking for something a tiny bit more fancy to add to the fluidity of the animation, try switching on motion blur
+# If you're looking for something a tiny bit more fancy to add to the fluidity 
+# of the animation, try switching on motion blur
 #bpy.data.scenes["Scene"].render.use_motion_blur = True
 
 # READY TO RENDER! #

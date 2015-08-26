@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 #
 # This program is designed to plot an interactive 3D cube of the HI gas in 
 # the compact group of galaxies HCG91 using the Mayavi module. It is an example 
 # of "real" astrophsyical data plotted interactively in 3-D using Mayavi. 
 # In particular, the code does not shy away from the intricasies related to 
-# dealing with WCS coordinates, large datasets, etc ...
+# dealing with WCS coordinates, large(-r) datasets, etc ...
 #
 # See the green and red dice examples for more basic introductions to Mayavi.
 #
@@ -14,11 +15,26 @@
 #
 # Questions, comments : frederic.vogt@anu.edu.au
 #
-# If you find this code useful for your research, please cite
+# If you find this code useful for your research, please cite the following 
+# article accordingly:
 #
 # Vogt, Owen et al., Advanced Data Visualization in Astrophysics: 
 # the X3D Pathway, ApJ (2015).
 #
+#    Copyright (C) 2015  Frédéric P.A. Vogt, Chris I. Owen
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # ------------------------------------------------------------------------------
 
 # Import the required modules
