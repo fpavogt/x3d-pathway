@@ -1,12 +1,18 @@
-<?xml version="1.0" encoding ="UTF-8"?>
-<!-- FPAV: Need to add the correct DTD -->
-<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.1//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
-<X3D profile="Immersive" version="3.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN"
+                     "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile="Immersive" version="3.3"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.3.xsd">
+<!-- FPAV: corrected the X3D header with correct DTD and XML Schema above and updated the metadata below -->
   <head>
-    <meta name="filename" content="./HCG91.x3d"/>
+    <meta name="filename" content="HCG91_mod.x3d"/>
     <meta name="generator" content="Visualization ToolKit X3D exporter v0.9.1"/>
     <meta name="numberofelements" content="24"/>
+    <meta name="title" content="red_dice_mod.x3d"/>
+    <meta name="creator" content="F.P.A. Vogt" />
+    <meta name="description" content=" The HI generated using Python Mayavi module, to illustrate the creation process of X3D models."/>
   </head>
+
   <!-- FPAV: disable picking for small render speed gain -->
   <Scene doPickPass="false">
     <!-- FPAV: change background color -->
@@ -93183,8 +93189,8 @@
 	      <!-- FPAV: Set diffuse color to black and add layer name via DEF="…" -->
               <Material DEF="label_d" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-	    <!-- FPAV: Add spaces to the label for the look, and make the text visible from both side using solid="False" -->
-            <Text string="HCG  91d" solid="False">
+	    <!-- FPAV: Add spaces to the label for the look, and make the text visible from both side using solid="false" -->
+            <Text string='"HCG  91d"' solid="false">
 	      <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93201,8 +93207,8 @@
 	      <!-- FPAV: Set diffuse color to black and add layer name via DEF="…" -->
               <Material DEF="label_b" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: Add spaces to the label for the look, and make the text visible from both side using solid="False" -->
-            <Text string="HCG  91b" solid="False">
+            <!-- FPAV: Add spaces to the label for the look, and make the text visible from both side using solid="false" -->
+            <Text string='"HCG  91b"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93219,7 +93225,7 @@
               <!-- FPAV: Set diffuse color to black and add layer name via DEF="…" -->
               <Material DEF="label_c" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <Text string="HCG  91c">
+            <Text string='"HCG  91c"'>
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93236,7 +93242,7 @@
               <!-- FPAV: Set diffuse color to black and add layer name via DEF="…" -->
               <Material DEF="label_a" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <Text string="HCG  91a">
+            <Text string='"HCG  91a"'>
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93254,8 +93260,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axlabel1" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="R.A. [arcsec]" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"R.A. [arcsec]"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93268,8 +93274,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axlabel2" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="Dec. [arsec]" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"Dec. [arsec]"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93282,8 +93288,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axlabel3" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="V [km/s]" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"V [km/s]"' solid="false">
                <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93296,8 +93302,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axlabel4" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="Dec. [arcsec]" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"Dec. [arcsec]"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93310,8 +93316,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axlabel5" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="V [km/s]" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"V [km/s]"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93324,8 +93330,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axlabel6" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="R.A. [arcsec]" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"R.A. [arcsec]"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93341,8 +93347,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axtick1" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="300" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"300"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93355,8 +93361,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axtick2" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="-300" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"-300"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93369,8 +93375,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axtick3" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="300" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"300"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93383,8 +93389,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axtick4" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="-300" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"-300"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93397,8 +93403,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axtick5" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="6671.3" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"6671.3"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93411,8 +93417,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axtick6" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="7643.7" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"7643.7"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93425,8 +93431,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axtick7" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="300" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"300"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93439,8 +93445,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axtick8" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="-300" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"-300"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93453,8 +93459,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axtick9" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="6671.3" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"6671.3"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93467,8 +93473,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axtick10" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="7643.7" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"7643.7"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93481,8 +93487,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axtick11" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="300" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"300"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>
@@ -93495,8 +93501,8 @@
               <!-- FPAV: add layer name via DEF="…" -->
               <Material DEF="axtick12" diffuseColor="0 0 0" emissiveColor="0 0 0"/>
             </Appearance>
-            <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string="-300" solid="False">
+            <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"-300"' solid="false">
               <!-- FPAV: adjust font size -->
               <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
             </Text>

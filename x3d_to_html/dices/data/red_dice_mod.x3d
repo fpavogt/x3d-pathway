@@ -1,13 +1,19 @@
-<?xml version="1.0" encoding ="UTF-8"?>
-<!-- FPAV: Need to add the correct DTD -->
-<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.1//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
-<X3D profile="Immersive" version="3.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN"
+                     "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile="Immersive" version="3.3"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.3.xsd">
+<!-- FPAV: corrected the X3D header with correct DTD and XML Schema above and updated the metadata below -->
   <head>
-    <meta name="filename" content="dice_2.x3d"/>
+    <meta name="filename" content="red_dice_mod.x3d"/>
     <meta name="generator" content="Visualization ToolKit X3D exporter v0.9.1"/>
     <meta name="numberofelements" content="5"/>
+    <meta name="title" content="red_dice_mod.x3d"/>
+    <meta name="creator" content="F.P.A. Vogt" />
+    <meta name="description" content=" A semi-transparent red dice, generated using Python Mayavi module, to illustrate the creation process of X3D models."/>
   </head>
-  <Scene doPickPass="true">
+
+  <Scene doPickPass="false">
     <!-- FPAV: <Background skyColor="0.5 0.5 0.5"/> --> 
     <!-- FPAV: <Viewpoint fieldOfView="0.523599" position="2.31177 2.31177 2.31177" description="Default View" orientation="0.187053 0.451587 0.872399 -3.83511" centerOfRotation="0 0 0"/> -->
     <NavigationInfo type='"EXAMINE" "FLY" "ANY"' speed="4" headlight="true"/>
@@ -5774,8 +5780,8 @@
               <!-- FPAV: add layer name via 'DEF=…' -->
               <Material DEF="text" diffuseColor="0 0 1" emissiveColor="1 1 1"/>
             </Appearance>
-	    <!-- FPAV: make sure the text is visible from both sides using solid="False" -->
-            <Text string='"This is a dice"' solid="False">
+	    <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
+            <Text string='"This is a dice"' solid="false">
               <FontStyle family='"SANS"' topToBottom="false" justify='"MIDDLE" "MIDDLE"' size="12"/>
             </Text>
           </Shape>

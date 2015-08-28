@@ -108,7 +108,7 @@ All these issues are unfortunate limitations of the existing Mayavi/VTK X3D expo
 
 		<b> - Colors:</b> colors can behave erradically for transparent layers. <i> DepthMode </i> is the solution to this problem as a stand-alone tag included after the <i> &lt;Material ... ></i> entry, e.g.: <code>&lt;DepthMode readOnly="true">&lt;/DepthMode> </code> <br><br>
 
-		<b> - Text size & apperance :</b> by default, any text exported by Mayavi will have an arbitrary size, and will be visible from one side only. These aspects can be corrected with the <code> scale="0.02 0.02 0.02"</code> option in the <i> &lt;FontStyle></i> tag and the <code> solid="false" </code> option in the <i> &lt;Text> </i> tag, respectively.<br><br>
+		<b> - Text size & apperance :</b> by default, any text exported by Mayavi will have an arbitrary size, and will be visible from one side only. These aspects can be corrected with the <code> scale="0.02 0.02 0.02"</code> option in the <i> &lt;FontStyle></i> tag and the <code> solid="False" </code> option in the <i> &lt;Text> </i> tag, respectively.<br><br>
 		
 		<b> - Text orientation:</b> by default, any text exported by Mayavi will have an arbitrary orientation in space. The correct orientation can be obtained by setting the <i> rotation </i> element inside the <i> Transform </i> tag, e.g.: <code>  &lt;Transform translation="0 0 0" rotation="0 0 1 -0" scale="1 1 1"> </code>. The rotation in the X3D format is a set of 4 numbers. The first three define the x, y and z component of the rotation vector in 3-D (i.e. the vector perpendicular to the plane of rotation), while the 4th element is the rotation angle in radians. <br><br>
 
@@ -182,19 +182,10 @@ One might now wish to add more features. Of particular interest for Astrophysica
 
 		<b> - Camera tracking for annotations:</b> one may wish, for enhanced clarity of the model, to have certain text elements (e.g. annotations within the model) track the camera motion as the user moves the model around. This can be achieved by surrounding the corresponding text code inside the X3D file with the <code>&lt; Billboard> ... &lt;/Billboard></code> tags. See <a href="http://doc.x3dom.org/author/Navigation/Billboard.html">this page</a> for more details.<br><br>
 
-		<b> - File header: </b> the default Mayavi/VTK X3D exporter lacks an explicit and correct DTD. It is good practice to ensure that the header of the X3D file header is correct (see <a href="http://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#Validation">http://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#Validation</a>) for validation purposes. For X3D v3.3, the final DTD and XML Schema header is:	</font></p>
-<pre><code
-      &lt;?xml version="1.0" encoding="UTF-8"?>
-      &lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN"
-             "http://www.web3d.org/specifications/x3d-3.3.dtd">
-      &lt;X3D profile="Immersive" version="3.3" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" 
-             xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.3.xsd">
-</code></pre>
-	<p style="width:1000px;"> 
-	<font size="3">
+		<b> - DTD: </b> the default Mayavi/VTL X3D exporter lacks an explicit DTD. Although X3DOM doesn't require this per se, it can be a useful feature for test purposes, and a proper DTD might be required by journal editors. Adding a proper DTD to the X3D file requires the inclusion of the following line at the top: <code>&lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.1//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd"></code><br><br>
 		<br>
-                Similarly, one might also want to expand the metadata information regarding the file, e.g. in the present case with <code>&lt;meta name="title" content="red_dice_mod.x3d"/></code>, <code>&lt;meta name="creator" content=" ..."</code> and <code>&lt;meta name="description" content=" ..." /> </code>.<br><br>
-  
+
+
 		Pulling everything together, the corrected/upgraded red dice example looks like this:
 		<br><br>
 
@@ -244,9 +235,9 @@ One might now wish to add more features. Of particular interest for Astrophysica
 		<br>																						</font></p>
              <p style="width:1000px;"> 
 	      <font size="3">
-		Compared to the default red dice imported in HTML straight from Python, this second example is better behaved and more reader friendly. Action buttons are especially useful to direct the reader's attention to specific elements of a given model easily.<br><br>
+		Compared to the default red dice imported in HTML straight from Python, this second example is better behaved and more reader friendly. Action buttons are especially useful to direct the reader's attention to specific elements of a given model easily.
 
-		The <a href="https://savage.nps.edu/X3dValidator">X3D Validator</a> is an online tool that allows to inspect one's X3D files and check for errors and syntax issues within. While X3DOM specific syntax (such as <code>doPickPass</code> and <code>DepthMode</code>) will raise errors, this tool remains useful to iron-out any significant syntax issue before releasing/publishing an X3D file.
+
 	      </font>
 	    </p> 
 
