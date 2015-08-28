@@ -17,13 +17,13 @@ To add a base to the model inside Blender, the required (minimal) steps are:
 
 Adding additional structures, columns, plates, etc … can be achieved using the "Add -> Mesh -> …" functions. The internet is full of step-by-step Blender tutorials which will be of much better quality than anything we could include in this README.
 
-Finally, for completeness, a cover image for the sliding rack is also provided. These images are extracted from Vogt+, MNRAS (2015), and included here with authorisation from MNRAS.
+Finally, for completeness, a cover image for the sliding rack is also provided. This image is extracted from Vogt+, "Galaxy Interactions in Compact Groups II: abundance and kinematic anomalies in HCG91c", MNRAS 450, 2593 (2015).
 
 *** Basic file descriptions ***
 
-HCG91.stl: 3-D printable file
+HCG91.stl: 3-D printable file (can be inspected using Meshlab)
 
-adding_a_base.png: screenshot of the Blender GUI illustrating how to merge a base plate with a 3-D model.
+adding_a_base.png: screenshot of the Blender GUI illustrating how to merge a base plate with the 3-D model.
 HCG91.blend: Blender file containing the 3-D model of HCG91 prior to the union of the base plate.
 HCG91_dss+VLA.png: image for inclusion inside the sliding rack
 

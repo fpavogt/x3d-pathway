@@ -13,7 +13,7 @@
 #
 # Created, April 2015, F.P.A. Vogt
 #
-# Questions, comments : frederic.vogt@anu.edu.au
+# Questions, comments : frederic.vogt@alumni.epfl.ch
 #
 # If you find this code useful for your research, please cite the following 
 # article accordingly:
@@ -401,8 +401,8 @@ mlab.plot3d(tails_x,tails_y,tails_z, color=(0,1,1), tube_radius=rad,
 # --- !!! ---
 # MAYAVI BUG & WORK-AROUND (#2 continued)
 # Normally, the diagram would be complete at this point. 
-# However, for the x3d export, we still need to manually include the axis,
-# axis labels, and some tick labels. This is tedious, but here we go.
+# However, for the x3d export, we still need to manually include the axes,
+# axes labels, and some tick labels. This is tedious, but here we go.
 #
 # If you do not care about x3d export remove those lines, and set
 #

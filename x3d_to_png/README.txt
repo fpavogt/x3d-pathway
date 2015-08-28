@@ -60,7 +60,7 @@ HCG91_animation.py:  Python & Blender animation script
 green_dice.mov: animation
 red_dice.mov: animation
 HCG91.mov: animation (generate from HCG91_animation.py)
-HCG91_extended.mov: animation (more complex than HCG91.mov, designed to illustrate additional capabilities of Blender, and designed with a dedicated script available on demand).
+HCG91_extended.mov: animation (more complex than HCG91.mov, designed to illustrate additional capabilities of Blender, and generated with a dedicated script available on demand).
 
 green_dice.x3d: X3D file generated via green_dice.py
 red_dice.x3d: X3D file generated via red_dice.py
