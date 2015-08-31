@@ -93181,7 +93181,7 @@
 	<!--                  THE GALAXIES LABELS ARE DEFINED HERE                       -->
         <!--                                                                             -->
 	<!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="3.48 -87.09 7195.0" rotation="0 1 0 3.14" scale="1 1 1">
+        <Transform translation="3.48 -87.09 7195.0" rotation="0 1 0 3.14" scale="4 4 4">
 	<!-- FPAV: Add the Billboard tag to have the label face the camera at all times -->
 	<Billboard axisOfRotation='0,0,0'  bboxCenter='0,0,0'>
           <Shape>
@@ -93192,14 +93192,14 @@
 	    <!-- FPAV: Add spaces to the label for the look, and make the text visible from both side using solid="false" -->
             <Text string='"HCG  91d"' solid="false">
 	      <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         <!-- FPAV: close the billboard tag -->
 	</Billboard>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="108.24 165.91 7196.0" rotation ="0 1 0 3.14" scale="1 1 1">
+        <Transform translation="108.24 165.91 7196.0" rotation ="0 1 0 3.14" scale="4 4 4">
         <!-- FPAV: Add the Billboard tag to have the label face the camera at all times -->
 	<Billboard axisOfRotation='0,0,0'  bboxCenter='0,0,0'>
           <Shape>
@@ -93210,14 +93210,14 @@
             <!-- FPAV: Add spaces to the label for the look, and make the text visible from both side using solid="false" -->
             <Text string='"HCG  91b"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
 	<!-- FPAV: close the billboard tag -->
 	</Billboard>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="77.74 -21.09 7319.0" rotation="0 1 0 3.14" scale="1 1 1">
+        <Transform translation="77.74 -21.09 7319.0" rotation="0 1 0 3.14" scale="4 4 4">
         <!-- FPAV: Add the Billboard tag to have the label face the camera at all times -->
 	<Billboard axisOfRotation='0,0,0'  bboxCenter='0,0,0'>
           <Shape>
@@ -93227,14 +93227,14 @@
             </Appearance>
             <Text string='"HCG  91c"'>
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         <!-- FPAV: close the billboard tag -->
 	</Billboard>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="-5.81 -119.09 6832.0" rotation="0 1 0 3.14" scale="1 1 1">
+        <Transform translation="-5.81 -119.09 6832.0" rotation="0 1 0 3.14" scale="4 4 4">
         <!-- FPAV: Add the Billboard tag to have the label face the camera at all times -->
 	<Billboard axisOfRotation='0,0,0'  bboxCenter='0,0,0'>
           <Shape>
@@ -93244,7 +93244,7 @@
             </Appearance>
             <Text string='"HCG  91a"'>
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         <!-- FPAV: close the billboard tag -->
@@ -93254,7 +93254,7 @@
 	<!--                  THE AXES LABELS ARE DEFINED HERE                           -->
         <!--                                                                             -->
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="0 -350 6671.3" rotation="0 1 0 3.14" scale="1 1 1">
+        <Transform translation="0 -350 6671.3" rotation="0 1 0 3.14" scale="4 4 4">
           <Shape>
             <Appearance> 
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93263,12 +93263,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"R.A. [arcsec]"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="350 0 6671.3" rotation="1 1 0 3.14" scale="1 1 1">
+        <Transform translation="350 0 6671.3" rotation="1 1 0 3.14" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93277,12 +93277,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"Dec. [arsec]"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="-300 -350 7157.5" rotation="0 1 0 -1.57" scale="1 1 1">
+        <Transform translation="-300 -350 7157.5" rotation="0 1 0 -1.57" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93291,12 +93291,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"V [km/s]"' solid="false">
                <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="-300 0 6620" rotation="1 1 -1 -2.09439" scale="1 1 1">
+        <Transform translation="-300 0 6620" rotation="1 1 -1 -2.09439" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93305,12 +93305,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"Dec. [arcsec]"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="-350 300 7157.5" rotation="1 1 1 -2.0944" scale="1 1 1">
+        <Transform translation="-350 300 7157.5" rotation="1 1 1 -2.0944" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93319,12 +93319,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"V [km/s]"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="0 300 6620" rotation="1 0 0 -1.57" scale="1 1 1">
+        <Transform translation="0 300 6620" rotation="1 0 0 -1.57" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93333,7 +93333,7 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"R.A. [arcsec]"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
@@ -93341,7 +93341,7 @@
 	<!--                  THE AXES TICK LABELS ARE DEFINED HERE                      -->
         <!--                                                                             -->
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="300 -350 6671.3" rotation="0 1 0 3.14" scale="1 1 1">
+        <Transform translation="300 -350 6671.3" rotation="0 1 0 3.14" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93350,12 +93350,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"300"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="-300 -350 6671.3" rotation="0 1 0 3.14" scale="1 1 1">
+        <Transform translation="-300 -350 6671.3" rotation="0 1 0 3.14" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93364,12 +93364,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"-300"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="350 300 6671.3" rotation="0 1 0 3.14" scale="1 1 1">
+        <Transform translation="350 300 6671.3" rotation="0 1 0 3.14" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93378,12 +93378,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"300"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="350 -300 6671.3" rotation="0 1 0 3.14" scale="1 1 1">
+        <Transform translation="350 -300 6671.3" rotation="0 1 0 3.14" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93392,12 +93392,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"-300"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="-300 -350 6671.3" rotation="0 1 0 -1.57" scale="1 1 1">
+        <Transform translation="-300 -350 6671.3" rotation="0 1 0 -1.57" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93406,12 +93406,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"6671.3"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="-300 -350 7643.7" rotation="0 1 0 -1.57" scale="1 1 1">
+        <Transform translation="-300 -350 7643.7" rotation="0 1 0 -1.57" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93420,12 +93420,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"7643.7"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="-300 300 6620" rotation="0 1 0 -1.57" scale="1 1 1">
+        <Transform translation="-300 300 6620" rotation="0 1 0 -1.57" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93434,12 +93434,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"300"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="-300 -300 6620" rotation="0 1 0 -1.57" scale="1 1 1">
+        <Transform translation="-300 -300 6620" rotation="0 1 0 -1.57" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93448,12 +93448,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"-300"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="-350 300 6671.3" rotation="1 1 1 -2.0944" scale="1 1 1">
+        <Transform translation="-350 300 6671.3" rotation="1 1 1 -2.0944" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93462,12 +93462,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"6671.3"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="-350 300 7643.7" rotation="1 1 1 -2.0944" scale="1 1 1">
+        <Transform translation="-350 300 7643.7" rotation="1 1 1 -2.0944" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93476,12 +93476,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"7643.7"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="300 300 6620" rotation="1 1 1 -2.0944" scale="1 1 1">
+        <Transform translation="300 300 6620" rotation="1 1 1 -2.0944" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93490,12 +93490,12 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"300"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
         <!-- FPAV: Correct text location, rotation and scale -->
-        <Transform translation="-300 300 6620" rotation="1 1 1 -2.0944" scale="1 1 1">
+        <Transform translation="-300 300 6620" rotation="1 1 1 -2.0944" scale="4 4 4">
           <Shape>
             <Appearance>
               <!-- FPAV: add layer name via DEF="…" -->
@@ -93504,7 +93504,7 @@
             <!-- FPAV: make sure the text is visible from both sides using solid="false" -->
             <Text string='"-300"' solid="false">
               <!-- FPAV: adjust font size -->
-              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="40"/>
+              <FontStyle family='"SANS"' topToBottom="false" justify='"BEGIN" "BEGIN"' size="10"/>
             </Text>
           </Shape>
         </Transform>
