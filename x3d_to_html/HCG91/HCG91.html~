@@ -21,9 +21,9 @@
 
 	    Questions, comments : frederic.vogt@alumni.epfl.ch <br><br>
 
-	    If you find this code useful for your research, please cite the following article accordingly:<br>
+	    If you find this code useful for your research, please cite<br>
 
-	    Vogt, Owen et al., Advanced Data Visualization in Astrophysics: the X3D Pathway, ApJ (2015).<br>
+	    Vogt, Owen et al., Advanced Data Visualization in Astrophysics: the X3D Pathway, ApJ (2015). [<a href="http://TBD">ADS link</a>]<br>
 	    ------<br>
 	    </font>
 
@@ -34,13 +34,13 @@
 
             <p style="width:1000px;"> 
 	      <font size="3">
-		<!--
+
 		<x3d width='1000px' height='400px', margin-left='300px'> 
 		  <scene> 
 		    <inline url="./data/HCG91.x3d" nameSpaceName="Dice" mapDEFToID="true" onclick=''/>
 		  </scene> 
 		</x3d> 
-		-->
+
 	    </font></p>
 
 	    <p style="width:1000px;"> 

@@ -97,7 +97,7 @@
 
 		<br>
 		<br>
-		This example was generated using the <a href="../../fits_to_x3d/red_dice/red_dice.py"><i>red_dice.py</i></a> Python script, specifically designed to hit some of the current limits of the Mayavi X3D exporter (namely, the VTK X3D Exporter v0.9.1). Hence, some visual issues are present in the interactive model above, including: <br>
+		This example was generated using the <a href="../../fits_to_x3d/red_dice/red_dice.py"><i>red_dice.py</i></a> Python script, specifically designed to hit some of the current limits of the Mayavi X3D exporter. Hence, some visual issues are present in the interactive model above, including: <br>
 - the inner semi-transparent white sphere is not always visible, <br>
 - the color of the red cube faces is inconsistent, and <br>
 - the text ''<i>This is a dice </i>'' is not scaled properly. <br><br>
@@ -246,9 +246,7 @@ One might now wish to add more features. Of particular interest for Astrophysica
 	      <font size="3">
 		Compared to the default red dice imported in HTML straight from Python, this second example is better behaved and more reader friendly. Action buttons are especially useful to direct the reader's attention to specific elements of a given model easily.<br><br>
 
-		The <a href="https://savage.nps.edu/X3dValidator">X3D Validator</a> is an online tool that allows to inspect one's X3D files and check for errors and syntax issues within. While X3DOM specific syntax (such as <code>doPickPass</code> and <code>DepthMode</code>) will raise errors, this tool remains useful to iron-out any significant syntax issue before releasing/publishing an X3D file.  For X3D files generated with Mayavi, one error raised by the Validator is that inside <code> Text </code> node, strings should be defined with both single AND double quotation marks (e.g. <code>&lt; Text string=' " What a string ! " '>&lt;/Text></code>). But text strings exported from Mayavi via the VTK X3D Exporter v0.9.1 only have a double quotation marks, which the X3D Validator flags accordingly.<br><br>
-
-Further information on the different nodes and syntax elements available in the X3D & X3DOM standards is available in the <a href="http://doc.x3dom.org/index.html">official X3DOM documentation</a>.
+		The <a href="https://savage.nps.edu/X3dValidator">X3D Validator</a> is an online tool that allows to inspect one's X3D files and check for errors and syntax issues within. While X3DOM specific syntax (such as <code>doPickPass</code> and <code>DepthMode</code>) will raise errors, this tool remains useful to iron-out any significant syntax issue before releasing/publishing an X3D file. Further information on the different nodes and syntax elements available in the X3D & X3DOM standards is available in the <a href="http://doc.x3dom.org/index.html">official X3DOM documentation</a>.
 	      </font>
 	    </p> 
 
