@@ -13,7 +13,7 @@
 #
 # Created, April 2015, F.P.A. Vogt
 #
-# Questions, comments : frederic.vogt@alumni.epfl.ch
+# Questions, comments : frederic.vogt@alumni.anu.edu.au
 #
 # If you find this code useful for your research, please cite the following 
 # article accordingly:

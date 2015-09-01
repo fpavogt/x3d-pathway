@@ -9,7 +9,7 @@
 # school 2015. 
 # Published as supplementary material in Vogt, Owen et al., ApJ (2015).
 #
-# Questions, comments : frederic.vogt@alumni.epfl.ch
+# Questions, comments : frederic.vogt@alumni.anu.edu.au
 #
 # If you find this code useful for your research, please cite the following 
 # article accordingly:
