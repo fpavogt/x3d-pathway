@@ -1,0 +1,201 @@
+    <html> 
+        <head> 
+            <title>HCG 91</title> 			
+            <script type='text/javascript' src='x3dom/x3dom.js'> </script> 
+            <link rel='stylesheet' type='text/css' href='x3dom/x3dom.css'></link> 
+	    <style>
+	      x3d
+	      {
+              border:2px solid darkorange;
+	      }   
+	    </style>
+
+        </head> 
+        <body> 
+            <h1>Interactive HTML with Python and X3D: HCG 91</h1> 
+	    
+	    <font size="2">
+	    ------<br>
+	    Created April 2015 by F.P.A.Vogt.<br> 
+	    Published as supplementary material in Vogt, Owen et al., ApJ (2015).<br><br>
+
+	    Questions, comments : frederic.vogt@alumni.anu.edu.au <br><br>
+
+	    If you find this code useful for your research, please cite the following article accordingly:<br>
+
+	    Vogt, Owen et al., Advanced Data Visualization in Astrophysics: the X3D Pathway, ApJ (2015).<br>
+	    ------<br>
+	    </font>
+
+	    <p style="width:1000px;"> 
+	      <font size="3">
+	    Let us first use the unmodified X3D file exported from Mayavi to create the interactive model. As in the case of the <a href="../dices/red_dice.html">red dice example</a>, the resulting interactive model does not look how one would expect. <br><br>
+	    </font></p>
+
+            <p style="width:1000px;"> 
+	      <font size="3">
+	
+		<x3d width='1000px' height='400px', margin-left='300px'> 
+		  <scene> 
+		    <inline url="./data/HCG91.x3d" nameSpaceName="Dice" mapDEFToID="true" onclick=''/>
+		  </scene> 
+		</x3d> 
+	
+	    </font></p>
+
+	    <p style="width:1000px;"> 
+	      <font size="3">
+		<br>
+
+		If one implements the different corrective steps described in the <a href="../dices/red_dice.html">red dice example</a>, one can improve the look of the model significantly. All the modifications to the original X3D file (<a href="./data/HCG91.x3d">HCG91.x3d</a>) are tagged with a comment line with the structure <code> &lt;!-- FPAV: ... --> </code> in the corrected X3D file (<a href="./data/HCG91_mod.x3d">HCG91_mod.x3d</a>) for rapid identification.<br><br>
+
+
+		After adding some interaction buttons to toogle the different HI iso-contours on/off, and defining specific top-front-side viewpoints, the final interactive HTML model of the HI gas content inside HCG 91 is as follows.
+		<br><br>
+
+		<script>
+		function setHIlayer0()
+		{
+		if(document.getElementById('hcg91__layer0').getAttribute('transparency')!= '0.8')
+		document.getElementById('hcg91__layer0').setAttribute('transparency', '0.8');
+		else 
+		document.getElementById('hcg91__layer0').setAttribute('transparency', '1'); 
+		}
+		</script>
+		<script>
+		  function setHIlayer1()
+		  {
+		  if(document.getElementById('hcg91__layer1').getAttribute('transparency')!= '0.8')
+		  document.getElementById('hcg91__layer1').setAttribute('transparency', '0.8');
+		  else 
+		  document.getElementById('hcg91__layer1').setAttribute('transparency', '1'); 
+		  }
+		</script>
+		<script>
+		  function setHIlayer2()
+		  {
+		  if(document.getElementById('hcg91__layer2').getAttribute('transparency')!= '0.8')
+		  document.getElementById('hcg91__layer2').setAttribute('transparency', '0.8');
+		  else 
+		  document.getElementById('hcg91__layer2').setAttribute('transparency', '1'); 
+		  }
+		</script>	
+		<script>
+		  function setHIlayer3()
+		  {
+		  if(document.getElementById('hcg91__layer3').getAttribute('transparency')!= '0')
+		  document.getElementById('hcg91__layer3').setAttribute('transparency', '0');
+		  else 
+		  document.getElementById('hcg91__layer3').setAttribute('transparency', '1'); 
+		  }
+		</script>	
+		<script>
+		function setgrids()
+		{
+		if(document.getElementById('hcg91__tickline1').getAttribute('transparency')!= '0'){
+		document.getElementById('hcg91__tickline1').setAttribute('transparency', '0');
+		document.getElementById('hcg91__tickline2').setAttribute('transparency', '0');
+		document.getElementById('hcg91__tickline3').setAttribute('transparency', '0');
+		document.getElementById('hcg91__tickline4').setAttribute('transparency', '0');
+		document.getElementById('hcg91__tickline5').setAttribute('transparency', '0');
+		document.getElementById('hcg91__tickline6').setAttribute('transparency', '0');
+		}
+		else {
+		document.getElementById('hcg91__tickline1').setAttribute('transparency', '1');
+		document.getElementById('hcg91__tickline2').setAttribute('transparency', '1');
+		document.getElementById('hcg91__tickline3').setAttribute('transparency', '1');
+		document.getElementById('hcg91__tickline4').setAttribute('transparency', '1');
+		document.getElementById('hcg91__tickline5').setAttribute('transparency', '1');
+		document.getElementById('hcg91__tickline6').setAttribute('transparency', '1');
+		}
+		}
+		</script>
+		<script>
+		function setaxes()
+		{
+		if(document.getElementById('hcg91__axlabel1').getAttribute('transparency')!= '0'){
+		document.getElementById('hcg91__axlabel1').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axlabel2').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axlabel3').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axlabel4').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axlabel5').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axlabel6').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axtick1').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axtick2').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axtick3').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axtick4').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axtick5').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axtick6').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axtick7').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axtick8').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axtick9').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axtick10').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axtick11').setAttribute('transparency', '0');
+		document.getElementById('hcg91__axtick12').setAttribute('transparency', '0');
+		}
+		else {
+		document.getElementById('hcg91__axlabel1').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axlabel2').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axlabel3').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axlabel4').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axlabel5').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axlabel6').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axtick1').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axtick2').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axtick3').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axtick4').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axtick5').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axtick6').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axtick7').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axtick8').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axtick9').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axtick10').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axtick11').setAttribute('transparency', '1');
+		document.getElementById('hcg91__axtick12').setAttribute('transparency', '1');
+		}
+		}
+		</script>
+
+
+		<x3d id="HCG91Fixed" width='1000px' height='600px', margin-left='300px'> 
+		  <scene> 
+		   <OrthoViewpoint id="front" bind='false' centerOfRotation='0,0,7157.5' description='RA-Dec view' fieldOfView='[-400,-400,400,400]' isActive='false' metadata='X3DMetadataObject' orientation='0,1,0,3.14' position='0,0,6000' zFar='10000' zNear='0.1' ></OrthoViewpoint>
+		    <OrthoViewpoint id="side" bind='false' centerOfRotation='0,0,7157.5' description='V - Dec view' fieldOfView='[-400,-400,400,400]' isActive='false' metadata='X3DMetadataObject' orientation='0,-1,0,1.57' position='-700,0,7157.5' zFar='10000' zNear='0.1' ></OrthoViewpoint> 
+		    <OrthoViewpoint id="side2" bind='false' centerOfRotation='0,0,7157.5' description='V - RA view' fieldOfView='[-400,-400,400,400]' isActive='false' metadata='X3DMetadataObject' orientation='1,1,1,4.1888' position='0,700,7157.5' zFar='10000' zNear='0.1' ></OrthoViewpoint> 
+                    <Viewpoint id="perspective" bind='false' fieldOfView='0.523599' position='-1614,1553,6054' description='Perspective View' orientation='0.92,0.27,-0.29,4.10' centerOfRotation='0,0,7157'></Viewpoint>
+
+		    <inline url="./data/HCG91_mod.x3d" nameSpaceName="hcg91" mapDEFToID="true" onclick=''/>
+		  </scene> 
+		</x3d> 
+ 
+		<div id="tools" style="width: 1000px;">
+    		  <p>&nbsp;</p>
+		  <b>Viewpoints:</b> 
+		  <button onclick="document.getElementById('HCG91Fixed').runtime.resetView();">Reset View</button>
+		  <button onclick="document.getElementById('front').setAttribute('set_bind','true');">R.A. - Dec.</button>
+    		  <button onclick="document.getElementById('side').setAttribute('set_bind','true');">V - Dec.</button>
+		  <button onclick="document.getElementById('side2').setAttribute('set_bind','true');">V - R.A.</button>
+		  <button onclick="document.getElementById('perspective').setAttribute('set_bind','true');">Perspective View</button>
+		  <button onclick="document.getElementById('HCG91Fixed').runtime.nextView();">Next View</button>
+		  
+		  &nbsp <b>Labels:</b> 
+		  <button onclick="setgrids();" >Grids</button>
+		  <button onclick="setaxes();" >Axes labels</button>
+		  <br><br>
+		  <b>HI layers:</b> 
+		  <button onclick="setHIlayer0();" style="color:FireBrick">1.3 mJy/beam</button>
+		  <button onclick="setHIlayer1();" style="color:FireBrick">2.5 mJy/beam</button>
+		  <button onclick="setHIlayer2();" style="color:FireBrick">3.5 mJy/beam</button>
+		  <button onclick="setHIlayer3();" style="color:FireBrick">6.0 mJy/beam</button>
+		</div>
+		<br>																						</font></p>
+             <p style="width:1000px;"> 
+	      <font size="3">
+
+	      </font>
+	    </p> 
+
+
+
+	</body> 
+    </html>

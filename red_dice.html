@@ -1,0 +1,258 @@
+    <html> 
+        <head> 
+            <title>Red dice</title> 			
+            <script type='text/javascript' src='x3dom/x3dom.js'> </script> 
+            <link rel='stylesheet' type='text/css' href='x3dom/x3dom.css'></link> 
+	    <style>
+	      x3d
+	      {
+              border:2px solid darkorange;
+	      }   
+	    </style>
+
+        </head> 
+        <body> 
+            <h1>Interactive HTML with Python and X3D: a red dice example</h1> 
+	    
+	    <font size="2">
+	    ------<br>
+	    Created January 2015 by F.P.A.Vogt for the ANITA astroinformatics summer school 2015.<br> 
+	    Initial version included in the 2015 PhD thesis of Vogt at the Australian National University (<a href="http://dx.doi.org/10.4225/13/5553E63D6A79A">DOI:10.4225/13/5553E63D6A79A</a>).<br>
+	    Published in updated form as supplementary material in Vogt, Owen et al., ApJ (2015).<br><br>
+
+	    Questions, comments : frederic.vogt@alumni.anu.edu.au <br><br>
+
+	    If you find this code useful for your research, please cite the following article accordingly:<br>
+
+	    Vogt, Owen et al., Advanced Data Visualization in Astrophysics: the X3D Pathway, ApJ (2015).<br>
+	    ------<br>
+	    </font>
+
+            <p style="width:1000px;"> 
+	      <font size="3">
+		This file illustrates how to create high quality interactive HTML documents using the X3D & X3DOM approach. The input 3-D models used in this example were created using the Mayavi module in Python, but any 3-D model stored as an X3D file can be included within an HTML page in the same way. This document does NOT explore the full potential of the X3D standard ! The interested reader is referred to the detailed X3DOM <a href="http://www.x3dom.org/">documentation</a> for more details.  
+		<br>
+		<br>
+		First thing first, one should ensure that the web browser currently used does support X3DOM <a href="http://www.x3dom.org/check/"> here</a>. See <a href="http://www.x3dom.org/?page_id=9">this page</a> for a detailed list of all supported web browsers. This HTML document has been tested successfully with Firefox, Safari and Chrome.
+		<br>
+		<br>
+		Let us now get started by displaying a simple green dice (see also <a href="green_dice.html">green_dice.html</a> for a fully stripped-down version).
+		<br>
+		<br>
+
+		<x3d width='1000px' height='400px', margin-left='300px'> 
+		  <scene> 
+		    <inline url="./data/green_dice.x3d" nameSpaceName="GreenDice" mapDEFToID="true" onclick=''/>
+		  </scene> 
+		</x3d> 
+
+		<br>
+		<br>
+		Once the 3D model has loaded, it can be freely rotated, zoomed in/out and panned around. The X3D file was generated using the Python script <a href="../../fits_to_x3d/green_dice/green_dice.py"><i>green_dice.py</i></a>, and is included in the most straight-forward manner inside the HTML page as follows:
+	    </font></p>
+
+	<pre><code>
+	&lt;html> 
+	  &lt;head> 
+            &lt;title>Python + X3D dices&lt;/title> 			
+            &lt;script type='text/javascript' src='x3dom/x3dom.js'> &lt;/script> 
+            &lt;link rel='stylesheet' type='text/css' href='x3dom/x3dom.css'>&lt;/link> 
+	    &lt;style>
+	      x3d{
+              border:2px solid darkorange;
+	      }   
+	    &lt;/style>
+          &lt;/head> 
+          
+          &lt;body>
+            &lt;x3d width='1000px' height='400px', margin-left='300px'> 
+	      &lt;scene> 
+	        &lt;inline url="./data/green_dice.x3d" nameSpaceName="GreenDice" mapDEFToID="true" onclick=''/>
+	      &lt;/scene> 
+	    &lt;/x3d>
+         &lt;/body>&lt;/html> 
+	    </code></pre>
+
+	    <p style="width:1000px;"> 
+	      <font size="3">
+		For this specifc example, the result looks and behaves just fine, and there isn't much else needed. One should note that in order to allow for offline access to the interactive model, the files <i> x3dom.js</i> and <i>x3dom.css</i> are included with this HTML document as supplementary material. Alternatively, substituting the following lines :
+
+	<pre><code>			
+        &lt;script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'> &lt;/script> 
+        &lt;link rel='stylesheet' type='text/css' href='http://www.x3dom.org/x3dom/release/x3dom.css'>&lt;/link> 
+	</code></pre>
+	    
+	    <p style="width:1000px;"> 
+	    <font size="3">
+	    will result in an interactive HTML document that doesn't require a local copy of the <i>x3dom.css</i> and <i> x3dom.js</i> files at the price of being solely accessible when connected to the World Wide Web.<br>
+
+		<br>
+		Most likely, many Astrophysical models will be more complex than this simple green dice example, and might include transparent layers, text, colorbars, etc ... One might also want to add interaction buttons to the scene to show/hide certain datasets, direct the attention of readers to certain features, move to pre-set points-of-view, etc ... Let us have a look at some of these additions using the example below: a red semi-transparent dice with two spheres inside it. <br>
+		<br>
+		<x3d width='1000px' height='400px', margin-left='300px'> 
+		  <scene> 
+		    <inline url="./data/red_dice.x3d" nameSpaceName="RedDice" mapDEFToID="true" onclick=''/>
+		  </scene> 
+		</x3d> 
+
+		<br>
+		<br>
+		This example was generated using the <a href="../../fits_to_x3d/red_dice/red_dice.py"><i>red_dice.py</i></a> Python script, specifically designed to hit some of the current limits of the Mayavi X3D exporter (namely, the VTK X3D Exporter v0.9.1). Hence, some visual issues are present in the interactive model above, including: <br>
+- the inner semi-transparent white sphere is not always visible, <br>
+- the color of the red cube faces is inconsistent, and <br>
+- the text ''<i>This is a dice </i>'' is not scaled properly. <br><br>
+
+All these issues are unfortunate limitations of the existing Mayavi/VTK X3D exporter that will hopefully be corrected in the future. In anycase, all these issues can already be corrected manually inside the X3D file itself as follows. All the modifications to the original X3D file (red_dice.x3d) are tagged with a comment line with the structure &lt;!-- FPAV: ... --> in the corrected X3D file (red_dice_mod.x3d) for rapid identification.
+		<br><br>
+		<b> - Layer transparency:</b> X3DOM has issues with transparency depending on the draw order of the different elements. The <i> sortKey </i> keyword inside the X3D file allows to define in which order the different layers must be drawn, so that they look as intended. The <i>sortKey</i> keyword is placed inside the <i> &lt;Appearance> </i> tag, e.g.	<code> &lt;Apperance sortKey="0"></code>. The counter goes from <i> in </i> to <i> out </i>, i.e. ''0'' indicates the inner-most transparent layer, etc ...<br><br>
+
+		<b> - Colors:</b> colors can behave erradically for transparent layers. <i> DepthMode </i> is the solution to this problem as a stand-alone tag included after the <i> &lt;Material ... ></i> entry, e.g.: <code>&lt;DepthMode readOnly="true">&lt;/DepthMode> </code> <br><br>
+
+		<b> - Text size & apperance :</b> by default, any text exported by Mayavi will have an arbitrary size, and will be visible from one side only. These aspects can be corrected with the <code> scale="0.02 0.02 0.02"</code> option in the <i> &lt;FontStyle></i> tag and the <code> solid="false" </code> option in the <i> &lt;Text> </i> tag, respectively. One should note that although one could alter the text size directly within the <code>FontStyle</code> tag via the <code>size="10"</code> parameter, our experiments have shown that a few text elements with large sizes (e.g. <code>size="40"</code>) can very significantly slow down the load-time of a model. In such a case, one ought to reduce the <code>size</code> value and increase the <code>scale</code> instead.<br><br>
+		
+		<b> - Text orientation:</b> by default, any text exported by Mayavi will have an arbitrary orientation in space. The correct orientation can be obtained by setting the <i> rotation </i> element inside the <i> Transform </i> tag, e.g.: <code>  &lt;Transform translation="0 0 0" rotation="0 0 1 -0" scale="1 1 1"> </code>. The rotation in the X3D format is a set of 4 numbers. The first three define the x, y and z component of the rotation vector in 3-D (i.e. the vector perpendicular to the plane of rotation), while the 4th element is the rotation angle in radians. <br><br>
+
+		<b> - Lights:</b> many lights are turned on by default in the original model. These can be confusing at times, and can be turned off with the <code> on="false" </code> option inside the different <code> &lt;DirectionLight></code> tags. In our experience, leaving a single headline on will usually give the best results. <br><br>
+
+		<br>
+		With these modifications, the red dice now looks as it should.<br> <br> 
+
+One might now wish to add more features. Of particular interest for Astrophysical applications are interaction buttons (for specific points of view and datasets visibility), and colorbars.
+		<br><br>
+
+		<b> - Show/Hide specific items:</b> a name must first be attributed to the different layers in the X3D file. This is done via the <code> DEF="my_layer_name" </code> tag inside the <code> &lt;Material> </code> tag for each layer. Unfortunately, layer names attributed inside Mayavi are currently NOT exported to X3D by the Mayavi/VTK X3D exporter, that replaces them with generic ones (which must then be replaced manually inside the X3D file). To hide a given layer, one simply sets its transparency to 100%. To do so, one first defines a function inside the HTML page, e.g. in the present case for the white sphere (labelled as ''outer_sphere'' in the X3D file) inside the red dice:
+</font></p>
+<pre><code>
+	&lt;script>
+		  function setSphere()
+		  {
+		  if(document.getElementById('RedDiceFixed__outer_sphere').getAttribute('transparency')!= '0.5')
+		     document.getElementById('RedDiceFixed__outer_sphere').setAttribute('transparency', '0.5');
+		  else 
+		     document.getElementById('RedDiceFixed__outer_sphere').setAttribute('transparency', '1'); 
+		  }
+	&lt;/script>
+
+</code></pre>
+	    <p style="width:1000px;"> 
+	      <font size="3">
+		And then one adds an interaction button that calls this function with: 
+</font></p>
+<pre><code> 
+       &lt;button onclick="setSphere();" style="color:FireBrick">White sphere&lt;/button> 
+</code></pre>
+	    <p style="width:1000px;"> 
+	      <font size="3">
+		The function then switches the transparency of the layer between 100% (invisible) and 50% (semi-transparent, the original value) each time the button is clicked.<br><br>
+
+		<b> - Pre-set views:</b> specific views (in orthographic projection in this case) can be defined inside the <code> &lt;x3d> </code> tag inside the HTML document with 
+</font></p>
+<pre><code> 
+       &lt;OrthoViewpoint id="front" bind='false' centerOfRotation='0,0,0' description='front view' fieldOfView='[-1,-1,1,1]' isActive='false' 
+       metadata='X3DMetadataObject' orientation='0,0,0,3.14' position='0,0,10' zFar='100' zNear='-10' >&lt;/OrthoViewpoint> 
+</code></pre>
+	    <p style="width:1000px;"> 
+	      <font size="3">
+		Viewpoints can also be defined directly in the X3D file. Specific viewpoints can then be activated by the reader via buttons defined as follows in the HTML document:
+</font></p>
+<pre><code> 
+       &lt;button onclick="document.getElementById('front').setAttribute('set_bind','true');">Front&lt;/button>
+</code></pre>
+	<p style="width:1000px;">
+	<font size="3">
+	In addition, a reset button for the current view can be created using:
+	</font></p>
+<pre><code>
+       &lt;button onclick="document.getElementById('red_cube_fixed').runtime.resetView();">Reset View&lt;/button>
+</code></pre>
+	<p style="width:1000px;">
+	<font size="3">
+	And for simplicity and clarity when defining several generic viewpoints, these can be toogled in a row using:
+	</font></p>
+<pre><code>
+       &lt;button onclick="document.getElementById('red_cube_fixed').runtime.nextView();">Next View&lt;/button>
+</code></pre>
+	<p style="width:1000px;"> 
+	<font size="3">
+
+	  <br>
+	<b> - Colorbar:</b> the trick here is to include the colorbar as a background image, prepared separately. The image inclusion is done in the HTML document with <code> &lt;background backUrl="...">&lt;/background> </code>. For consistency, one also ought to remove any background definition inside the X3D file by commenting out the corresponding command <code>&lt;!-- &lt;Background skyColor="0.5 0.5 0.5"/> --></code>. <br><br>
+
+		<b> - Picking:</b> it is possible to pick objects in X3DOM or trigger events by clicking on objects. This example does NOT use any picking (instead, see e.g. <a href="http://doc.x3dom.org/tutorials/animationInteraction/picking/index.html"> this X3DOM example </a>), and so one can save a couple of milliseconds when rendering each frame by setting the <code> doPickPass </code> attribute as follows: <code>&lt; scene doPickPass="false"></code>. <br><br>
+
+		<b> - Camera tracking for annotations:</b> one may wish, for enhanced clarity of the model, to have certain text elements (e.g. annotations within the model) track the camera motion as the user moves the model around. This can be achieved by surrounding the corresponding text code inside the X3D file with the <code>&lt; Billboard> ... &lt;/Billboard></code> tags. See <a href="http://doc.x3dom.org/author/Navigation/Billboard.html">this page</a> for more details.<br><br>
+
+		<b> - File header: </b> the default Mayavi/VTK X3D exporter lacks an explicit and correct DTD. It is good practice to ensure that the header of the X3D file header is correct (see <a href="http://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#Validation">http://www.web3d.org/x3d/content/examples/X3dSceneAuthoringHints.html#Validation</a>) for validation purposes. For X3D v3.3, the final DTD and XML Schema header is:	</font></p>
+<pre><code
+      &lt;?xml version="1.0" encoding="UTF-8"?>
+      &lt;!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN"
+             "http://www.web3d.org/specifications/x3d-3.3.dtd">
+      &lt;X3D profile="Immersive" version="3.3" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" 
+             xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.3.xsd">
+</code></pre>
+	<p style="width:1000px;"> 
+	<font size="3">
+		<br>
+                Similarly, one might also want to expand the metadata information regarding the file, e.g. in the present case with <code>&lt;meta name="title" content="red_dice_mod.x3d"/></code>, <code>&lt;meta name="creator" content=" ..."</code> and <code>&lt;meta name="description" content=" ..." /> </code>.<br><br>
+  
+		Pulling everything together, the corrected/upgraded red dice example looks like this:
+		<br><br>
+
+		<script>
+		  function setCube()
+		  {
+		  if(document.getElementById('RedDiceFixed__cube').getAttribute('transparency')!= '0.5')
+		     document.getElementById('RedDiceFixed__cube').setAttribute('transparency', '0.5');
+		  else 
+		     document.getElementById('RedDiceFixed__cube').setAttribute('transparency', '1'); 
+		  }
+		</script>
+
+		<script>
+		  function setSphere()
+		  {
+		  if(document.getElementById('RedDiceFixed__outer_sphere').getAttribute('transparency')!= '0.5')
+		     document.getElementById('RedDiceFixed__outer_sphere').setAttribute('transparency', '0.5');
+		  else 
+		     document.getElementById('RedDiceFixed__outer_sphere').setAttribute('transparency', '1'); 
+		  }
+		</script>
+
+		<x3d id = "red_cube_fixed" width='1000px' height='400px', margin-left='300px'> 
+		  <scene> 
+		    <background backUrl="./data/background.png"></background>
+		    <OrthoViewpoint id="front" bind='false' centerOfRotation='0,0,0' description='front view' fieldOfView='[-1,-1,1,1]' isActive='false' metadata='X3DMetadataObject' orientation='0,0,0,3.14' position='0,0,10' zFar='100' zNear='-10' ></OrthoViewpoint> 
+		    <OrthoViewpoint id="back" bind='false' centerOfRotation='0,0,0' description='back view' fieldOfView='[-1,-1,1,1]' isActive='false' metadata='X3DMetadataObject' orientation='0,1,0,3.14' position='0,0,-10' zFar='100' zNear='-10' ></OrthoViewpoint>
+                    <Viewpoint id="perspective" bind='false' fieldOfView='0.1' position='0,0.16,19.0' orientation='0,1,0,0' centerOfRotation='0,0,0'></Viewpoint>
+		    <inline url="./data/red_dice_mod.x3d" nameSpaceName="RedDiceFixed" mapDEFToID="true" onclick=''/>
+		  </scene> 
+		</x3d> 
+
+		<div id="tools" style="width: 1000px;">
+    		  <p>&nbsp;</p>
+		  <b>Viewpoints:</b> 
+		  <button onclick="document.getElementById('red_cube_fixed').runtime.resetView();">Reset View</button>
+		  <button onclick="document.getElementById('front').setAttribute('set_bind','true');">Front</button>
+    		  <button onclick="document.getElementById('back').setAttribute('set_bind','true');">Back</button>
+                  <button onclick="document.getElementById('perspective').setAttribute('set_bind','true');">Perspective View</button>
+		  <button onclick="document.getElementById('red_cube_fixed').runtime.nextView();">Next View</button>
+	
+		  &nbsp <b>Hide/show:</b> 
+		  <button onclick="setCube();" style="color:FireBrick">Red cube</button>
+		  <button onclick="setSphere();" style="color:FireBrick">White sphere</button>
+		</div>
+		<br>																						</font></p>
+             <p style="width:1000px;"> 
+	      <font size="3">
+		Compared to the default red dice imported in HTML straight from Python, this second example is better behaved and more reader friendly. Action buttons are especially useful to direct the reader's attention to specific elements of a given model easily.<br><br>
+
+		The <a href="https://savage.nps.edu/X3dValidator">X3D Validator</a> is an online tool that allows to inspect one's X3D files and check for errors and syntax issues within. While X3DOM specific syntax (such as <code>doPickPass</code> and <code>DepthMode</code>) will raise errors, this tool remains useful to iron-out any significant syntax issue before releasing/publishing an X3D file.  For X3D files generated with Mayavi, one error raised by the Validator is that inside <code> Text </code> node, strings should be defined with both single AND double quotation marks (e.g. <code>&lt; Text string=' " What a string ! " '>&lt;/Text></code>). But text strings exported from Mayavi via the VTK X3D Exporter v0.9.1 only have a double quotation marks, which the X3D Validator flags accordingly.<br><br>
+
+Further information on the different nodes and syntax elements available in the X3D & X3DOM standards is available in the <a href="http://doc.x3dom.org/index.html">official X3DOM documentation</a>.
+	      </font>
+	    </p> 
+
+
+
+	</body> 
+    </html>
