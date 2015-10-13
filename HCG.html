@@ -1,53 +1,71 @@
-    <html> 
-        <head> 
-            <title>HCG 91</title> 			
-            <script type='text/javascript' src='x3dom/x3dom.js'> </script> 
-            <link rel='stylesheet' type='text/css' href='x3dom/x3dom.css'></link> 
-	    <style>
-	      x3d
-	      {
-              border:2px solid darkorange;
-	      }   
-	    </style>
+<!DOCTYPE html>
+<html>
 
-        </head> 
-        <body> 
-            <h1>Interactive HTML with Python and X3D: HCG 91</h1> 
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="The X3D pathway : This page contains practical examples illustrating the concept of the X3D pathway introduced in Vogt+, ApJ (2015).">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>The X3D pathway</title>
+    
+    <script type='text/javascript' src='x3dom/x3dom.js'> </script> 
+
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/fpavogt/x3d-pathway">View on GitHub</a>
+
+          <h1 id="project_title">The X3D pathway</h1>
+          <h2 id="project_tagline">Github repository associated with Vogt+, ApJ (2015)</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/fpavogt/x3d-pathway/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/fpavogt/x3d-pathway/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+       <a href="./index.html">Get me back to the main page !</a><br><br>
+ <h5>Interactive HTML with Python and X3D: HCG 91</h5> 
 	    
 	    <font size="2">
 	    ------<br>
-	    Created April 2015 by F.P.A.Vogt.<br> 
-	    Published as supplementary material in Vogt, Owen et al., ApJ (2015).<br><br>
+	    Created April 2015 by F.P.A.Vogt. Published as supplementary material in Vogt+, ApJ (2015).<br><br>
 
-	    Questions, comments : frederic.vogt@alumni.anu.edu.au <br><br>
+	    Questions, comments : frederic.vogt 'at' alumni.anu.edu.au <br><br>
 
 	    If you find this code useful for your research, please cite the following article accordingly:<br>
 
-	    Vogt, Owen et al., Advanced Data Visualization in Astrophysics: the X3D Pathway, ApJ (2015).<br>
+	    Vogt, Owen, Verdes-Montenegro & Borthakur, Advanced Data Visualization in Astrophysics: the X3D Pathway, ApJ (2015).<br>
 	    ------<br>
 	    </font>
 
-	    <p style="width:1000px;"> 
+	    <p> 
 	      <font size="3">
-	    Let us first use the unmodified X3D file exported from Mayavi to create the interactive model. As in the case of the <a href="../dices/red_dice.html">red dice example</a>, the resulting interactive model does not look how one would expect. <br><br>
+	    Let us first use the unmodified X3D file exported from Mayavi to create the interactive model. As in the case of the <a href="../dices.html">red dice example</a>, the resulting interactive model does not look how one would expect. <br><br>
 	    </font></p>
-
-            <p style="width:1000px;"> 
-	      <font size="3">
 	
-		<x3d width='1000px' height='400px', margin-left='300px'> 
+		<x3d width='660px' height='400px', margin-left='300px'> 
 		  <scene> 
 		    <inline url="./data/HCG91.x3d" nameSpaceName="Dice" mapDEFToID="true" onclick=''/>
 		  </scene> 
 		</x3d> 
 	
-	    </font></p>
 
-	    <p style="width:1000px;"> 
+	    <p> 
 	      <font size="3">
 		<br>
 
-		If one implements the different corrective steps described in the <a href="../dices/red_dice.html">red dice example</a>, one can improve the look of the model significantly. All the modifications to the original X3D file (<a href="./data/HCG91.x3d">HCG91.x3d</a>) are tagged with a comment line with the structure <code> &lt;!-- FPAV: ... --> </code> in the corrected X3D file (<a href="./data/HCG91_mod.x3d">HCG91_mod.x3d</a>) for rapid identification.<br><br>
+		If one implements the different corrective steps described in the <a href="./dices.html">red dice example</a>, one can improve the look of the model significantly. All the modifications to the original X3D file (<a href="https://github.com/fpavogt/x3d-pathway/blob/master/x3d_to_html/HCG91/data/HCG91.x3d">HCG91.x3d</a>) are tagged with a comment line with the structure <code>&lt;!-- FPAV: ... --></code> in the corrected X3D file (<a href="https://github.com/fpavogt/x3d-pathway/blob/master/x3d_to_html/HCG91/data/HCG91_mod.x3d">HCG91_mod.x3d</a>) for rapid identification.<br><br>
 
 
 		After adding some interaction buttons to toogle the different HI iso-contours on/off, and defining specific top-front-side viewpoints, the final interactive HTML model of the HI gas content inside HCG 91 is as follows.
@@ -157,7 +175,7 @@
 		</script>
 
 
-		<x3d id="HCG91Fixed" width='1000px' height='600px', margin-left='300px'> 
+		<x3d id="HCG91Fixed" width='660px' height='600px', margin-left='300px'> 
 		  <scene> 
 		   <OrthoViewpoint id="front" bind='false' centerOfRotation='0,0,7157.5' description='RA-Dec view' fieldOfView='[-400,-400,400,400]' isActive='false' metadata='X3DMetadataObject' orientation='0,1,0,3.14' position='0,0,6000' zFar='10000' zNear='0.1' ></OrthoViewpoint>
 		    <OrthoViewpoint id="side" bind='false' centerOfRotation='0,0,7157.5' description='V - Dec view' fieldOfView='[-400,-400,400,400]' isActive='false' metadata='X3DMetadataObject' orientation='0,-1,0,1.57' position='-700,0,7157.5' zFar='10000' zNear='0.1' ></OrthoViewpoint> 
@@ -168,8 +186,7 @@
 		  </scene> 
 		</x3d> 
  
-		<div id="tools" style="width: 1000px;">
-    		  <p>&nbsp;</p>
+		<div id="tools" style="width: 660px;">
 		  <b>Viewpoints:</b> 
 		  <button onclick="document.getElementById('HCG91Fixed').runtime.resetView();">Reset View</button>
 		  <button onclick="document.getElementById('front').setAttribute('set_bind','true');">R.A. - Dec.</button>
@@ -177,11 +194,11 @@
 		  <button onclick="document.getElementById('side2').setAttribute('set_bind','true');">V - R.A.</button>
 		  <button onclick="document.getElementById('perspective').setAttribute('set_bind','true');">Perspective View</button>
 		  <button onclick="document.getElementById('HCG91Fixed').runtime.nextView();">Next View</button>
-		  
-		  &nbsp <b>Labels:</b> 
+		  <br>
+		  <b>Labels:</b> 
 		  <button onclick="setgrids();" >Grids</button>
 		  <button onclick="setaxes();" >Axes labels</button>
-		  <br><br>
+		  <br>
 		  <b>HI layers:</b> 
 		  <button onclick="setHIlayer0();" style="color:FireBrick">1.3 mJy/beam</button>
 		  <button onclick="setHIlayer1();" style="color:FireBrick">2.5 mJy/beam</button>
@@ -195,7 +212,15 @@
 	      </font>
 	    </p> 
 
+    </section>
+    </div>
 
-
-	</body> 
-    </html>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">The X3D pathway maintained by <a href="https://github.com/fpavogt">fpavogt</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
