@@ -62,7 +62,7 @@ def ratodeg (ra) :
 plot_loc = './'
 
 # Open the FITS file from the VLA
-hdulist=pyfits.open('./data/HCG91.FITS')
+hdulist=pyfits.open('./data/HCG91.fits')
 
 # Load the array
 # It must be scaled to a 'reasonable' range to avoid small number issues.
