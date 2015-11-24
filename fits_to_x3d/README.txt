@@ -13,15 +13,15 @@ run green_dice.py
 
 You will need an up-to-date Python installation. The minimal set of packages required are:
 
-- Mayavi from Enthought (tested with v4.4.0)
-- astropy (tested with v1.0.1)
-- numpy (tested with v1.8.1)
+- Mayavi from Enthought (at least v4.4.0)
+- astropy (at least v1.0.1, also tested with 1.0.5)
+- numpy (at least v1.8.1, also tested with 1.10.1)
 
-You may use anaconda following these steps:
+If you are new to Python (or simply want a fresh Python environment to work with), you may use Anaconda following these steps:
 
 1.- Install anaconda from: https://www.continuum.io/downloads
 
-2.- Run the following commands in a termina
+2.- Run the following commands in a terminal
 cmd$ conda update conda
 cmd$ conda create --name x3ds python=2.7.10 numpy astropy mayavi
 cmd$ source x3ds
@@ -34,11 +34,6 @@ cmd$ pip install mayavi --upgrade
 cmd$ pip freeze | grep numpy
 cmd$ pip freeze | grep astropy
 cmd$ pip freeze | grep mayavi
-
-It has been also tested using the following versions of libraries
-numpy==1.10.1
-mayavi==4.4.0
-astropy==1.0.5
 
 *** Basic file descriptions ***
 
