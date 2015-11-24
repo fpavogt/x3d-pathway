@@ -39,7 +39,7 @@
 
 # Import the required modules
 
-from enthought.mayavi import mlab # for the interactive 3D
+from mayavi import mlab # for the interactive 3D
 from astropy.io import fits as pyfits # to open fits files
 import numpy as np 
 from astropy import wcs # to work with WCS (not required for plotting as such)
