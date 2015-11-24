@@ -34,7 +34,7 @@
 # ------------------------------------------------------------------------------
 
 # Import the required packages
-from enthought.mayavi import mlab
+from mayavi import mlab
 
 # Define the dice elements
 xs = [0]
