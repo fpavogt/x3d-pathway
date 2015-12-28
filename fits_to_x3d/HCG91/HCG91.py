@@ -174,16 +174,44 @@ decmean = np.mean([decmin,decmax])
 # For info, print the central WCS coordinate of the cube
 print ' Central location [RA;Dec]:',ramean,decmean 
     
+# ------------------------------------------------------------------------------
+# BUG Correction: 21.12.2015: set the velocity slices to be what they really
+# should be (in case the velocity steps are not constant). F.P.A.Vogt
+# Extract the velocity values in question - handle both cases when they are
+# increasing or decreasing
+if np.where(c_v[:,1]==vmin)[0] < np.where(c_v[:,1]==vmax)[0] :
+    vs_1d = c_v[:,1][np.where(c_v[:,1]==vmin)[0]:np.where(c_v[:,1]==vmax)[0]+1]
+else :
+    vs_1d = c_v[:,1][np.where(c_v[:,1]==vmax)[0]:np.where(c_v[:,1]==vmin)[0]+1]
+
+# Reorder them to be increasing:
+vs_1d.sort()
+
 # Finally, create grids with the coordinates of all the elements in the VLA data
 # Use relative offsets in arcsec for R.A. and Dec., and absolute velocity for v
-ras,decs,vs = np.mgrid[ (ramin-ramean)*3600.*np.cos(np.radians(decmin)):
-                        (ramax-ramean)*3600.*np.cos(np.radians(decmin)):
-                        (limx[1]-limx[0]+1)*1j,
-                        (decmin-decmean)*3600.:
-                        (decmax-decmean)*3600.:
-                        (limy[1]-limy[0]+1)*1j,
-                        vmin:vmax+0.1:dv]
-# ---
+ras,decs,vs = np.meshgrid(np.linspace((ramin-ramean)*3600.*np.cos(np.radians(decmin)),
+                                      (ramax-ramean)*3600.*np.cos(np.radians(decmin)),
+                                      num = (limx[1]-limx[0]+1)),
+                          np.linspace((decmin-decmean)*3600.,
+                                      (decmax-decmean)*3600.,
+                                      num = (limy[1]-limy[0]+1)),
+                          vs_1d,
+                          indexing='ij')
+
+''' ### Retired 21.12.2015; F.P.A. Vogt
+# Finally, create grids with the coordinates of all the elements in the VLA data
+# Use relative offsets in arcsec for R.A. and Dec., and absolute velocity for v
+ras_old,decs_old,vs_old = np.mgrid[ (ramin-ramean)*3600.*np.cos(np.radians(decmin)):
+                                    (ramax-ramean)*3600.*np.cos(np.radians(decmin)):
+                                    (limx[1]-limx[0]+1)*1j,
+                                    (decmin-decmean)*3600.:
+                                    (decmax-decmean)*3600.:
+                                    (limy[1]-limy[0]+1)*1j,
+                                    vmin:vmax+0.1:dv]
+'''
+
+# ------------------------------------------------------------------------------
+
 
 # Re-order the VLA array to have the dimensions in the good direction !
 # (z = v, x= R.A.), etc ... 
