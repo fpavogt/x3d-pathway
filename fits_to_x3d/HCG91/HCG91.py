@@ -39,7 +39,7 @@
 
 # Import the required modules
 
-from mayavi import mlab # for the interactive 3D
+from enthought.mayavi import mlab # for the interactive 3D
 from astropy.io import fits as pyfits # to open fits files
 import numpy as np 
 from astropy import wcs # to work with WCS (not required for plotting as such)
@@ -96,16 +96,24 @@ vmax = c_v[slice_min,1]
 # From Hickson (1992)
 gals = {'hcg91a':{'ra':[22,9,07.7],
                   'dec':[-27,48,34.0],
-                  'v':6832.},
+                  'v':6832.,
+                  'col':(0,1,0),
+                  },
         'hcg91b':{'ra':[22,9,16.3],
                   'dec':[-27,43,49.0],
-                  'v':7196.}, 
+                  'v':7196.,
+                  'col':(0.2,0.6,1),
+                  }, 
         'hcg91c':{'ra':[22,9,14.0],
                   'dec':[-27,46,56.0],
-                  'v':7319.}, 
+                  'v':7319.,
+                  'col':(0.8,0,0.8),
+                  }, 
         'hcg91d':{'ra':[22,9,08.4],
                   'dec':[-27,48,02.0],
-                  'v':7195.},
+                  'v':7195.,
+                  'col':(1,0,0),
+                  },
        }
 
 # All of the code below is only required to plot the galaxies in the good place
@@ -275,7 +283,6 @@ ax.visible = False
 # Also add black crosses for clarity.
 cross_size = 100
 sphere_size = 50
-galcolors = [(1,0,0),(0.2,0.6,1),(0.8,0,0.8),(0,1,0)]
 
 for (k,gal) in enumerate(gals.keys()):
 
@@ -315,7 +322,7 @@ for (k,gal) in enumerate(gals.keys()):
                   mode = 'sphere',
                   line_width = lw*0.75,
                   name = gal,
-                  color=galcolors[k])
+                  color=gals[gal]['col'])
                   
     # Finally, add the galaxy name as 3D text.             
     #mlab.text3d(my_x,my_y,my_z,'HCG91'+gal[-1],scale=20,color = (0,0,0))        
