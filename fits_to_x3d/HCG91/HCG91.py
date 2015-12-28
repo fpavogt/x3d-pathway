@@ -49,7 +49,12 @@ from astropy import wcs # to work with WCS (not required for plotting as such)
 
 # Declination to degrees
 def dectodeg (dec) :
-    return np.sign(dec[0])*(abs(dec[0]) + dec[1]/60. + dec[2]/3600.)
+# BUG Correction (F.P.A.Vogt, 21.12.2015): properly handle objects at
+# Dec = 0.x, where np.sign(dec) = 0 !
+    if np.sign(dec[0]) != 0:
+        return np.sign(dec[0])*(abs(dec[0]) + dec[1]/60. + dec[2]/3600.)
+    else:
+        return abs(dec[0]) + dec[1]/60. + dec[2]/3600.
 
 # R.A. to degrees
 def ratodeg (ra) :
