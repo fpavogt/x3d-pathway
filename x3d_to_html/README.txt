@@ -13,6 +13,14 @@ The 'HCG91.html' exploits the tools described in 'red_dice.html' to create the f
 
 These HTML files can be opened with most mainstream web browsers, and have been tested successfully with Firefox, Safari and Chrome. They can be edited using any text editor.
 
+### ATTENTION CHROME USERS ###
+
+When loading an interactive HTML model locally (i.e. from a file downloaded on a local computer), Chrome will fail to display it properly. This is not an X3D bug - but rather a “feature” of Chrome, which does not load local files by default. The web is fully of lengthy discussions about it. 
+
+One work-around is to launch Chrome from a terminal using the following command (under Mac OS X):
+
+open /Applications/Google\ Chrome.app —args --allow-file-access-from-files
+
 
 *** Basic file descriptions ***
 
