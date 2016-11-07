@@ -1,17 +1,26 @@
 
-These files contain practical examples of the X3D pathway introduced by Vogt+, "Advanced Data Visualization in Astrophysics: the X3D Pathway", ApJ 818, 115 (2016). 
+These files contain practical examples of the X3D pathway introduced by 
+
+Vogt+, "Advanced Data Visualization in Astrophysics: the X3D Pathway", ApJ 818, 115 (2016)
+
+and discussed further by
+
+Vogt+, “Linking to X3D pathway to integral field spectrographs: YSNR 1E 0102.2-7219 in the SMC as a case study”, PASP (2017). 
 
 For online examples of interactive 3-D models using HTML+X3D, see: 
 
 http://fpavogt.github.io/x3d-pathway/
 
 
-If you find some of this code useful for your research, please cite the above article accordingly, as well as the DOI of the repository release you used. E.g.:
+If you find some of this code useful for your research, please cite the above articles accordingly, as well as the DOI of the repository release you used. E.g.:
 
-- for the "v0.9 arXiv" release, DOI:10.5281/zenodo.31953
+- for the "v0.9 arXiv“ release, DOI:10.5281/zenodo.31953
 - for the “v1.0 ApJ” release, DOI:10.5281/zenodo.45079 
+- for the “v1.1 arXiv” release, TBD
+- for the “v1.2 PASP” release, TBD
 
-From the article abstract: 
+ 
+From the first article abstract: 
 
 "Most modern astrophysical datasets are multi-dimensional; a characteristic that can nowadays generally be conserved and exploited scientifically during the data reduction/simulation and analysis cascades. Yet, the same multi-dimensional datasets are systematically cropped, sliced and/or projected to printable two-dimensional (2-D) diagrams at the publication stage. 
 
@@ -21,7 +30,7 @@ Unlike other earlier propositions to publish multi-dimensional datasets via 3-D 
 
 Questions, feedback,README remarks: frederic.vogt@alumni.anu.edu.au
 
-Copyright (C) 2015 Frédéric P.A. Vogt, Chris I. Owen 
+Copyright (C) 2015-2016 Frédéric P.A. Vogt, Chris I. Owen 
 
 These program files are free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published 
 by the Free Software Foundation, either version 3 of the License, or
